@@ -4,7 +4,7 @@ import { Table } from 'reactstrap';
 export default class TableHover extends React.Component {
   render() {
     return (
-      <Table hover className="mb-0">
+      <Table hover className="mb-0" style={{color:'black'}}>
         <thead style={{backgroundColor: '#a8a3a3'}}>
           <tr>
             <th>STT</th>

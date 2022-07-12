@@ -23623,6 +23623,9 @@ button.rbc-input::-moz-focus-inner {
 .pe-7s-print:before {
   content: "\e61f";
 }
+.pe-7s-print {
+  font-size:20px;
+}
 
 .pe-7s-network:before {
   content: "\e69e";

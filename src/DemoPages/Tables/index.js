@@ -23,7 +23,6 @@ const Tables = ({match}) => (
 
                     <Route path={`${match.url}/regular-tables`} component={RegularTables}/>
                 </div>
-                <AppFooter/>
             </div>
         </div>
     </Fragment>
