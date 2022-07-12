@@ -80,9 +80,9 @@ export const ComponentsNav = [
         ],
     },
     {
-        icon: 'pe-7s-display2',
-        label: 'Regular Tables',
-        to: '#/tables/regular-tables',
+        icon: 'pe-7s-calculator',
+        label: 'Học phí',
+        to: '#/tables/học-phí',
     },
 ];
 export const FormsNav = [

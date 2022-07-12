@@ -21,7 +21,7 @@ const Tables = ({match}) => (
 
                     {/* Tables */}
 
-                    <Route path={`${match.url}/regular-tables`} component={RegularTables}/>
+                    <Route path={`${match.url}/học-phí`} component={RegularTables}/>
                 </div>
             </div>
         </div>
