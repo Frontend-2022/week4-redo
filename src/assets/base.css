@@ -104,13 +104,18 @@ hr:not([size]) {
   height: 1px;
 }
 
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+h51,.h51,h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 400;
   line-height: 1.2;
 }
-
+  h51, .h51 {
+    color:  rgb(154, 31, 68) !important;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
 h1, .h1 {
   font-size: calc(1.345rem + 1.14vw);
 }
@@ -5369,7 +5374,7 @@ textarea.form-control-lg {
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  margin: 0;
   pointer-events: none;
 }
 .modal.fade .modal-dialog {
@@ -5476,9 +5481,9 @@ textarea.form-control-lg {
 }
 
 @media (min-width: 576px) {
-  .modal-dialog {
-    max-width: 500px;
-    margin: 1.75rem auto;
+   .modal-dialog {
+    max-width: 800px;
+    margin: 10rem auto;
   }
 
   .modal-dialog-scrollable {
@@ -14387,7 +14392,10 @@ body .dropdown-menu.dropdown-menu-inline::before, body .dropdown-menu.dropdown-m
 .nav-link:disabled .nav-link-icon, .nav-link.disabled .nav-link-icon {
   opacity: 0.3;
 }
-
+.nav-item{
+    list-style: none;
+    margin-bottom: 10px;
+}
 .nav-item.nav-item-header {
   text-transform: uppercase;
   font-size: 0.7333333333rem;
