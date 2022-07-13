@@ -269,9 +269,8 @@ class Transcript extends Component {
           </Alert>
           <ContentTranscript />
           <ContentTranscript />
-          <ContentTranscript />
-          <ContentTranscript />
-          <ContentTranscript />
+         
+
 
           <Col lg="6">
             <div className="card mb-3 widget-chart">
