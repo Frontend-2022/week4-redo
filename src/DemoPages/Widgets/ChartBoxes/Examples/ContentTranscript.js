@@ -22,8 +22,8 @@ function ContentTranscript() {
     <>
       <Col lg="6">
         <Card className="main-card mb-3">
-          <CardBody>
-            <Table hover className="mb-0">
+          <CardBody style={{padding:"0 !important"}}>
+            <Table hover className="mb-0" >
               <thead style={{ backgroundColor: "#a8a3a3" }}>
                 <tr>
                   <th style={{ width: "100px", paddingLeft: "20px" }}>STT</th>

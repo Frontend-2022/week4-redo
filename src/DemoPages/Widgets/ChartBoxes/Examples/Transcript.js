@@ -1,102 +1,46 @@
 import React, { Component, Fragment } from "react";
 import ContentTranscript from "./ContentTranscript";
+import LineChartTranscript from "./LineChartTranscript";
 import "./Transcript.css";
-import ModalTranscript from "../../../Components/Modal/Examples/ModalTranscript";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import {
-  Row,
   Col,
   Button,
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  Nav,
-  NavItem,
-  NavLink,
-  Table,
-  CardBody,
   CardTitle,
   Card,
   Alert,
+  Progress
 } from "reactstrap";
-
-import {
-  AreaChart,
-  Area,
-  LineChart,
-  Line,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  ComposedChart,
-  CartesianGrid,
-} from "recharts";
-
 import {
   faAngleUp,
-  faAngleDown,
-  faArrowLeft,
-  faArrowRight,
-  faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
-
-import bg1 from "../../../../assets/utils/images/dropdown-header/abstract1.jpg";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const data = [
-  { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page C", uv: 2000, pv: 6800, amt: 2290 },
-  { name: "Page D", uv: 4780, pv: 7908, amt: 2000 },
-  { name: "Page E", uv: 2890, pv: 9800, amt: 2181 },
-  { name: "Page F", uv: 1390, pv: 3800, amt: 1500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-];
-
-const data2 = [
-  { name: "Page A", uv: 5400, pv: 5240, amt: 1240 },
-  { name: "Page B", uv: 7300, pv: 4139, amt: 3221 },
-  { name: "Page C", uv: 8200, pv: 7980, amt: 5229 },
-  { name: "Page D", uv: 6278, pv: 4390, amt: 3200 },
-  { name: "Page E", uv: 3189, pv: 7480, amt: 6218 },
-  { name: "Page D", uv: 9478, pv: 6790, amt: 2200 },
-  { name: "Page E", uv: 1289, pv: 1980, amt: 7218 },
-  { name: "Page F", uv: 3139, pv: 2380, amt: 5150 },
-  { name: "Page G", uv: 5349, pv: 3430, amt: 3210 },
-];
 class Transcript extends Component {
   render() {
     return (
       <>
         <div
-          className="contentMiddle"
-          style={{
-            // borderRadius: "5px",
-            // boxShadow: "0px 0px 5px 0px rgb(0 0 0 / 25%)",
-          }}
-        >
-          <div className="bgTittle">
-            <span
+          className="contentMiddle">
+          <Alert className="bgTittle"
+          color="dark">
+            <div
               style={{
                 color: "#A90001",
                 font: "0.8em  Tahoma, Arial, Sans-Serif",
                 fontSize: "15px",
                 fontWeight: "bold",
                 textTransform: "uppercase",
+                padding:"0",
+
                 paddingLeft: "40px",
               }}
             >
               Thông tin sinh viên
-            </span>
-          </div>
+            </div>
+          </Alert>
 
-          <div
+          <Alert
+            color="light"
             className="Table_header"
             style={{ margin: "0 auto", display: "flex", width: "100%" }}
           >
@@ -156,10 +100,7 @@ class Transcript extends Component {
                 </tr>
               </tbody>
             </table>
-          </div>
-          {/* <hr
-            style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
-          ></hr> */}
+          </Alert>
           <div className="Sort">
             <div className="Sort-1">
               <label style={{ fontSize: "14px" }}>Năm học</label>
@@ -216,9 +157,9 @@ class Transcript extends Component {
               <p>Xem bản in</p>
             </Button>
           </div>
-          {/* <hr
+          <hr
             style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
-          ></hr> */}
+          ></hr>
           <Alert color="warning">
             <strong
               style={{
@@ -280,37 +221,52 @@ class Transcript extends Component {
                   <div className="icon-wrapper-bg bg-primary" />
                   <i className="lnr-graduation-hat icon-gradient bg-happy-itmeo" />
                 </div>
-                <div className="widget-numbers">10.0</div>
-                <div className="widget-subheading">
+                <div className="widget-numbers"> 8.0</div>
+                <div className="widget-subheading ">
                   Điểm trung bình tích lũy
                 </div>
                 <div className="widget-description text-success">
-                  <FontAwesomeIcon icon={faAngleUp} />
-                  <span className="ps-1">100%</span>
+
                 </div>
+                <FontAwesomeIcon icon={faAngleUp} />
+                  <Col md="12">
+                                                            <div className="widget-content">
+                                                                <div className="widget-content-outer">
+                                                                    <div className="widget-content-wrapper">
+                                                                        <div className="widget-content-left me-3">
+                                                                            <div className="widget-numbers fsize-3 text-muted">
+                                                                                50%
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="widget-content-center">
+                                                                            <div className="text-muted opacity-6">
+                                                                                Mức độ hoàn thành
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="widget-progress-wrapper mt-1">
+                                                                        <Progress
+                                                                            className="progress-bar-sm progress-bar-animated-alt"
+                                                                            color="success"
+                                                                            value="50"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                        </Col>
               </div>
               <div className="widget-chart-wrapper chart-wrapper-relative">
-                <ResponsiveContainer height={100}>
-                  <LineChart
-                    data={data}
-                    margin={{ top: 5, right: 5, left: 5, bottom: 0 }}
-                  >
-                    <Line
-                      type="monotone"
-                      dataKey="pv"
-                      stroke="#3ac47d"
-                      strokeWidth={3}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
+                <LineChartTranscript/>
               </div>
             </div>
           </Col>
           <Card className="mb-3" body inverse color="danger">
-            <CardTitle className="text-white">Ghi Chú</CardTitle>
-            <div>
+            <CardTitle className="text-white" style={{paddingTop:"20px",paddingLeft:"20px"}}>Ghi Chú</CardTitle>
+            <div style={{
+                paddingLeft:"20px",
+                paddingBottom:"20px"
+            }}>
               {" "}
-              - Điểm trung bình tích lũy = Tổng điểm các môn
+              -  Điểm trung bình tích lũy = Tổng điểm các môn
               <b>TRONG CTDT ĐÃ HỌC & ĐẠT</b>/ Tổng số tín chỉ{" "}
               <b>TRONG CTDT ĐÃ HỌC & ĐẠT</b>
               <br></br> - Điểm trung bình tổng kết = Tổng điểm các môn{" "}
@@ -321,7 +277,7 @@ class Transcript extends Component {
                 href="/"
                 style={{
                   textDecoration: "none",
-                  color: " #0c1272",
+                  color: " #DCDCDC",
                   fontWeight: "bold",
                 }}
               >
@@ -333,7 +289,7 @@ class Transcript extends Component {
                 href="/"
                 style={{
                   textDecoration: "none",
-                  color: " #0c1272",
+                  color: "#DCDCDC",
                   fontWeight: "bold",
                 }}
               >
