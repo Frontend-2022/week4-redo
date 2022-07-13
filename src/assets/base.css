@@ -23347,7 +23347,11 @@ button.rbc-input::-moz-focus-inner {
 .pe-7s-piggy:before {
   content: "\e6c0";
 }
-
+.pe-7s-piggy {
+  font-size:20px;
+  margin-left: 31px;
+  width: 100%;
+}
 .pe-7s-plugin:before {
   content: "\e6c1";
 }

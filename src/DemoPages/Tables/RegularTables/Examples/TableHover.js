@@ -29,7 +29,8 @@ export default class TableHover extends React.Component {
             <th>Học phí</th>
             <th>Đã thanh toán</th>
             <th>Còn lại</th>
-            <th></th>
+            <th>Thanh toán</th>
+            <th>In</th>
           </tr>
         </thead>
         <tbody>
@@ -44,13 +45,14 @@ export default class TableHover extends React.Component {
                     </ModalBody>
                 </Modal>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
+            <td>211</td>
+            <td>01/01/2022</td>
+            <td>PT</td>
+            <td>6515218562</td>
+            <td>30.000.000</td>
+            <td>20.000.000</td>
+            <td>10.000.000</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/" ><i class="pe-7s-print " > </i></a></td>
           </tr>
           <tr>
@@ -62,6 +64,7 @@ export default class TableHover extends React.Component {
             <td>Otto</td>
             <td>@mdo</td>
             <td>Mark</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/"><i class="pe-7s-print"> </i></a></td>
           </tr>
           <tr>
@@ -73,6 +76,7 @@ export default class TableHover extends React.Component {
             <td>Otto</td>
             <td>@mdo</td>
             <td>Mark</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/"><i class="pe-7s-print"> </i></a></td>
           </tr>
           <tr>
@@ -84,6 +88,7 @@ export default class TableHover extends React.Component {
             <td>Otto</td>
             <td>@mdo</td>
             <td>Mark</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/"><i class="pe-7s-print"> </i></a></td>
           </tr>
           <tr>
@@ -95,6 +100,7 @@ export default class TableHover extends React.Component {
             <td>Otto</td>
             <td>@mdo</td>
             <td>Mark</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/print"><i class="pe-7s-print"> </i></a></td>
           </tr>
           <tr>
