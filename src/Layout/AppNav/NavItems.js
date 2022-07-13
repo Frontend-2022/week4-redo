@@ -104,8 +104,8 @@ export const FormsNav = [
 ];
 export const WidgetsNav = [
     {
-        icon: 'pe-7s-graph2',
-        label: 'Dashboard Boxes',
+        icon: 'lnr-graduation-hat icon-gradient bg-happy-itmeo',
+        label: 'Kết quả học tập',
         to: '#/widgets/dashboard-boxes',
     },
 ];
