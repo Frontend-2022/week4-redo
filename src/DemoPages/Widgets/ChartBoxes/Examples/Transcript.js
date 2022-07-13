@@ -77,8 +77,8 @@ class Transcript extends Component {
         <div
           className="contentMiddle"
           style={{
-            borderRadius: "5px",
-            boxShadow: "0px 0px 5px 0px rgb(0 0 0 / 25%)",
+            // borderRadius: "5px",
+            // boxShadow: "0px 0px 5px 0px rgb(0 0 0 / 25%)",
           }}
         >
           <div className="bgTittle">
@@ -157,9 +157,9 @@ class Transcript extends Component {
               </tbody>
             </table>
           </div>
-          <hr
+          {/* <hr
             style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
-          ></hr>
+          ></hr> */}
           <div className="Sort">
             <div className="Sort-1">
               <label style={{ fontSize: "14px" }}>Năm học</label>
@@ -201,9 +201,10 @@ class Transcript extends Component {
               color="primary"
               style={{
                 display: "flex",
-                width: "8%",
+                width: "15%",
                 height: "34px",
                 marginTop: "9px",
+                justifyContent:"center",
               }}
             >
               <i
@@ -215,9 +216,9 @@ class Transcript extends Component {
               <p>Xem bản in</p>
             </Button>
           </div>
-          <hr
+          {/* <hr
             style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
-          ></hr>
+          ></hr> */}
           <Alert color="warning">
             <strong
               style={{
@@ -269,7 +270,7 @@ class Transcript extends Component {
           </Alert>
           <ContentTranscript />
           <ContentTranscript />
-         
+
 
 
           <Col lg="6">
