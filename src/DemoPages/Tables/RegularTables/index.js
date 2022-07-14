@@ -45,7 +45,8 @@ export default class RegularTables extends React.Component {
             tooltip: { enabled: false },
             chart: {
               type: 'pie',
-              renderTo: 'pie'
+              renderTo: 'pie',
+              height: '310px',
             },
             title: {
               text:''
@@ -98,7 +99,7 @@ export default class RegularTables extends React.Component {
                                         </CardBody>
                                     </Card>
                                     <Row style={{marginLeft:'auto'}}>
-                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'100px', paddingLeft:'0', height:'250px'}}>
+                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'150px', paddingLeft:'0', height:'250px'}}>
                                         <CardBody >
                                             <CardTitle style={{textTransform:'none', color:'red', fontSize:'20px'}}>Ghi chú</CardTitle>
                                                 <p style={{color:'black'}}> - Phần mềm tính học phí và hiển thị học phí của sinh viên (SV) đang trong thời gian chạy thử nghiệm. Phòng Đào tạo mong Quý Phụ huynh và SV thông cảm về những sai sót có thể phát sinh trong giai đoạn này.</p>
@@ -106,7 +107,7 @@ export default class RegularTables extends React.Component {
                                                 <p style={{color:'black'}}> - SV có trách nhiệm tự kiểm tra học phí, khi có thắc mắc liên hệ số ĐT: 0353 4138 06 hoặc email: trangnguyen@vido.edu.vn</p>
                                         </CardBody>
                                     </Card>
-                                    <Card className="main-card " style={{width:'40%', display:'flex', height:'auto'}}>
+                                    <Card className="main-card " style={{width:'35%', display:'flex', height:'auto'}}>
                                         <Row>
                                     <Col>
                                     <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
@@ -126,7 +127,7 @@ export default class RegularTables extends React.Component {
                                                         <span className="ps-1">175.5%</span>
                                                     </div>
                                                 </div>
-                                                <div className="widget-chart-wrapper chart-wrapper-relative" id='pie'>
+                                                <div className="widget-chart-wrapper chart-wrapper-relative"  id='pie'>
                                                 </div>
                                             </div>
                                             </Col>
