@@ -11,30 +11,65 @@ import PageTitle from '../../../Layout/AppMain/PageTitle';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import TableHover from './Examples/TableHover';
-import {
-    Line,
-    ResponsiveContainer,
-    LineChart
-} from 'recharts';
-
+import Highcharts from 'highcharts';
 import {
     faAngleUp
 } from '@fortawesome/free-solid-svg-icons';
-const data = [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-    {name: 'Page C', uv: 2000, pv: 6800, amt: 2290},
-    {name: 'Page D', uv: 4780, pv: 7908, amt: 2000},
-    {name: 'Page E', uv: 2890, pv: 9800, amt: 2181},
-    {name: 'Page F', uv: 1390, pv: 3800, amt: 1500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-];
-const RegularTables = (props) => {
+
+
+
+export default class RegularTables extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            series: [{
+                name: 'Số tiền',
+                data: [
+                    {
+                      name: 'Đã thanh toán',
+                      y: 20000000,
+                      color: '#2ecc71'
+                    },
+                    {
+                      name: 'Học phí nợ',
+                      y: 1000000,
+                      color: '#f1c40f'
+                    }
+                ]
+            }]
+        }
+    }
+
+    highChartsRender() {
+        Highcharts.chart({
+            tooltip: { enabled: false },
+            chart: {
+              type: 'pie',
+              renderTo: 'pie',
+              height: '310px',
+            },
+            title: {
+              text:''
+            },
+            plotOptions: {
+              pie: {
+                dataLabels: {
+                    format: '{point.name}: {y}đ'
+                },
+                innerSize: '60%'
+              }
+            },
+            credits: {
+                enabled: false
+            },
+            series: this.state.series
+        });
+    }
+
+    componentDidMount() {
+        this.highChartsRender();
+    }
+    render() {
     return (
         <Fragment>
             <TransitionGroup>
@@ -64,7 +99,7 @@ const RegularTables = (props) => {
                                         </CardBody>
                                     </Card>
                                     <Row style={{marginLeft:'auto'}}>
-                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'36px', paddingLeft:'0', height:'250px'}}>
+                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'150px', paddingLeft:'0', height:'250px'}}>
                                         <CardBody >
                                             <CardTitle style={{textTransform:'none', color:'red', fontSize:'20px'}}>Ghi chú</CardTitle>
                                                 <p style={{color:'black'}}> - Phần mềm tính học phí và hiển thị học phí của sinh viên (SV) đang trong thời gian chạy thử nghiệm. Phòng Đào tạo mong Quý Phụ huynh và SV thông cảm về những sai sót có thể phát sinh trong giai đoạn này.</p>
@@ -72,9 +107,9 @@ const RegularTables = (props) => {
                                                 <p style={{color:'black'}}> - SV có trách nhiệm tự kiểm tra học phí, khi có thắc mắc liên hệ số ĐT: 0353 4138 06 hoặc email: trangnguyen@vido.edu.vn</p>
                                         </CardBody>
                                     </Card>
-                                    <Card className="main-card " style={{width:'50%', display:'flex', height:'auto'}}>
+                                    <Card className="main-card " style={{width:'35%', display:'flex', height:'auto'}}>
                                         <Row>
-                                    <Col lg='4'>
+                                    <Col>
                                     <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
                                                 <div className="widget-chart-content">
                                                     <div className="icon-wrapper rounded-circle">
@@ -92,72 +127,7 @@ const RegularTables = (props) => {
                                                         <span className="ps-1">175.5%</span>
                                                     </div>
                                                 </div>
-                                                <div className="widget-chart-wrapper chart-wrapper-relative">
-                                                    <ResponsiveContainer height={100}>
-                                                        <LineChart data={data}
-                                                                margin={{top: 5, right: 5, left: 5, bottom: 0}}>
-                                                            <Line type='monotone' dataKey='pv' stroke='#3ac47d'
-                                                                strokeWidth={3}/>
-                                                        </LineChart>
-                                                    </ResponsiveContainer>
-                                                </div>
-                                            </div>
-                                            </Col>
-                                            <Col lg='4'>
-                                    <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
-                                                <div className="widget-chart-content">
-                                                    <div className="icon-wrapper rounded-circle">
-                                                        <div className="icon-wrapper-bg bg-primary"/>
-                                                        <i className="lnr-cog text-primary"/>
-                                                    </div>
-                                                    <div className="widget-numbers">
-                                                        45.8k
-                                                    </div>
-                                                    <div className="widget-subheading">
-                                                        Đã thanh toán
-                                                    </div>
-                                                    <div className="widget-description text-success">
-                                                        <FontAwesomeIcon icon={faAngleUp}/>
-                                                        <span className="ps-1">175.5%</span>
-                                                    </div>
-                                                </div>
-                                                <div className="widget-chart-wrapper chart-wrapper-relative">
-                                                    <ResponsiveContainer height={100}>
-                                                        <LineChart data={data}
-                                                                margin={{top: 5, right: 5, left: 5, bottom: 0}}>
-                                                            <Line type='monotone' dataKey='pv' stroke='#3ac47d'
-                                                                strokeWidth={3}/>
-                                                        </LineChart>
-                                                    </ResponsiveContainer>
-                                                </div>
-                                            </div>
-                                            </Col>
-                                            <Col lg='4' >
-                                    <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
-                                                <div className="widget-chart-content" >
-                                                    <div className="icon-wrapper rounded-circle">
-                                                        <div className="icon-wrapper-bg bg-primary"/>
-                                                        <i className="lnr-cog text-primary"/>
-                                                    </div>
-                                                    <div className="widget-numbers">
-                                                        45.8k
-                                                    </div>
-                                                    <div className="widget-subheading">
-                                                        Học phí nợ
-                                                    </div>
-                                                    <div className="widget-description text-success">
-                                                        <FontAwesomeIcon icon={faAngleUp}/>
-                                                        <span className="ps-1">175.5%</span>
-                                                    </div>
-                                                </div>
-                                                <div className="widget-chart-wrapper chart-wrapper-relative">
-                                                    <ResponsiveContainer height={100}>
-                                                        <LineChart data={data}
-                                                                margin={{top: 5, right: 5, left: 5, bottom: 0}}>
-                                                            <Line type='monotone' dataKey='pv' stroke='#3ac47d'
-                                                                strokeWidth={3}/>
-                                                        </LineChart>
-                                                    </ResponsiveContainer>
+                                                <div className="widget-chart-wrapper chart-wrapper-relative"  id='pie'>
                                                 </div>
                                             </div>
                                             </Col>
@@ -173,5 +143,4 @@ const RegularTables = (props) => {
         </Fragment>
     );
 };
-
-export default RegularTables;
+}
