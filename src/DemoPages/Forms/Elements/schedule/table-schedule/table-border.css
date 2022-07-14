@@ -1,0 +1,15 @@
+.thead-style {
+    background-color: #a8a3a3;
+    text-align: center;
+}
+
+.tbody-style {
+    text-align: center;
+
+}
+
+.tr-style,
+.th-style,
+.td-style {
+    border-width: 3px;
+}

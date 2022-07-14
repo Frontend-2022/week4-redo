@@ -1,0 +1,90 @@
+.scheduleCSS {
+    /* width: 80%;
+    margin: 0 auto;
+    height: 500px; */
+    /* border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 0px 5px 0px; */
+}
+
+/* .schedule__header::before {
+    content: "";
+    position: absolute;
+    top: -76px;
+    left: 258px;
+    border-width: 40px 60px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+} */
+
+.schedule__header {
+    width: 40%;
+    /* margin: 0 24px; */
+    /* padding-top: 24px; */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.schedule__header-button {
+    /* width: 40px;
+    height: 40px; */
+    font-size: 45px;
+    margin-top: 2px;
+    /* margin-left: 20px;
+    position: absolute; */
+}
+
+.schedule__header-button:hover,
+.schedule__header-button1:hover {
+    cursor: pointer;
+}
+
+.schedule__header-form {
+    flex: 1;
+}
+
+.schedule__header-form--title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.schedule__student {
+    border-bottom: 2px solid red;
+    /* margin: 0 24px; */
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.schedule__contents {
+    /* margin: 0 8px; */
+    
+}
+
+.schedule__contents-name {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+}
+
+.schedule__contents-table {
+
+}
+
+.schedule__note {
+    padding: 20px 0;
+}
+
+.schedule__note-title {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.schedule__note-contents {
+    color: black;
+    font-size: 16px;
+}

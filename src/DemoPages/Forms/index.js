@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom';
 import FormElementsLayouts from "./Elements/Layouts/";
 import FormElementsControls from "./Elements/Controls/";
 import FormElementsValidation from "./Elements/Validation/";
+import Schedule from './Elements/schedule/schedule';
 
 // Layout
 
@@ -26,6 +27,7 @@ const Forms = ({match}) => (
                     <Route path={`${match.url}/controls`} component={FormElementsControls}/>
                     <Route path={`${match.url}/layouts`} component={FormElementsLayouts}/>
                     <Route path={`${match.url}/validation`} component={FormElementsValidation}/>
+                    <Route path={`${match.url}/schedule`} component={Schedule}/>
 
                 </div>
                 <AppFooter/>

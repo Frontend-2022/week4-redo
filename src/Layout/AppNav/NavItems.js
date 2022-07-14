@@ -87,6 +87,11 @@ export const ComponentsNav = [
 ];
 export const FormsNav = [
     {
+        icon: 'lnr-calendar-full',
+        label: 'Thời khoá biểu',
+        to: '#/forms/schedule',
+    },
+    {
         icon: 'pe-7s-light',
         label: 'Controls',
         to: '#/forms/controls',
