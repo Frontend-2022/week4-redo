@@ -142,3 +142,13 @@ label {
   flex: 1 1 auto;
   padding: 0 !important;
 } */
+.GPA_hk{
+  width: 70%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: #E9967A;
+  color: white;
+  text-align: center;
+  /* vertical-align: middle; */
+}
+/* style={{width:"70%",height:"80%",borderRadius:"50%",backgroundColor:"#E9967A",color:"white",display:"flex",justifyContent:"center",alignItems:"center"}} */

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+
 import {
   TabContent,
   Table,
@@ -11,7 +12,7 @@ import {
   Button,
   ButtonGroup,
   Modal,
-  Alert
+  Alert,
 } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Transcript.css";
@@ -20,10 +21,10 @@ import ModalTranscript from "../../../Components/Modal/Examples/ModalTranscript"
 function ContentTranscript() {
   return (
     <>
-      <Col lg="6">
+      {/* <Col lg="6">
         <Card className="main-card mb-3">
-          <CardBody style={{padding:"0 !important"}}>
-            <Table hover className="mb-0" >
+          <CardBody style={{ padding: "0 !important" }}>
+            <Table hover className="mb-0">
               <thead style={{ backgroundColor: "#a8a3a3" }}>
                 <tr>
                   <th style={{ width: "100px", paddingLeft: "20px" }}>STT</th>
@@ -169,6 +170,196 @@ function ContentTranscript() {
                 </td>
               </tr>
             </Alert>
+          </CardBody>
+        </Card>
+      </Col> */}
+
+      <Col lg="6">
+        <Card className="main-card mb-3">
+          <CardBody style={{ padding: "0 !important" }}>
+            <Table responsive className="mb-0">
+              <thead style={{ backgroundColor: "#DCDCDC" }}>
+                <tr>
+                  <td colspan="9">
+                    <b style={{ color: "#808080" }}>
+                      Năm học: 2020 - Học kỳ: HKC
+                    </b>
+                  </td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th
+                    scope="row"
+                    style={{
+                      width: "99%",
+                      height: "320px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderWidth: "1px",
+                    }}
+                  >
+                    <div className="GPA_hk">
+                      <div
+                        style={{ verticalAlign: "middle", paddingTop: "25%" }}
+                      >
+                        <div>Điểm trung bình học kì</div>
+                        <div style={{ fontSize: "80px" }}> 8.0 </div>
+                      </div>
+                    </div>
+                  </th>
+
+                  <th scope="row" style={{ width: "75%" }}>
+                    <table
+                      scope="row"
+                      style={{
+                        width: "75%",
+                        height: "10%",
+                        backgroundColor: "#D5E8D4",
+                      }}
+                    >
+                      <tr
+                        style={{
+                          height: "50px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <th
+                          style={{
+                            width: "515px",
+                            textAlign: "center",
+                            fontSize: "30px",
+                            border: "1px solid white",
+                            height: "50px",
+                          }}
+                        >
+                          Nguyên lý thị giác
+                        </th>
+                        <th
+                          style={{
+                            width: "200px",
+                            textAlign: "center",
+
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          Điểm:{" 8.0"}
+                        </th>
+                        <th
+                          style={{
+                            width: "100px",
+                            textAlign: "center",
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          Kết quả
+                        </th>
+                        <th
+                          style={{
+                            width: "300px",
+                            textAlign: "center",
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          Chi tiết
+                        </th>
+                      </tr>
+
+                      <tr
+                        style={{
+                          height: "50px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <th
+                          style={{
+                            width: "515px",
+                            textAlign: "center",
+                            height: "50px",
+                          }}
+                        >
+                          <thead
+                            style={{
+                              width: "190px",
+                              border: "1px solid white",
+                            }}
+                          >
+                            <th
+                              style={{
+                                width: "190px",
+                                border: "1px solid white",
+                              }}
+                            >
+                              Số TC
+                            </th>
+                            <th style={{ width: "280px" }}>Mã môn học</th>
+                          </thead>
+                          <tbody>
+                            <td
+                              style={{
+                                width: "280px",
+                                border: "1px solid white",
+                              }}
+                            >
+                              2
+                            </td>
+                            <td
+                              style={{
+                                width: "280px",
+                                border: "1px solid white",
+                              }}
+                            >
+                              2DH0211
+                            </td>
+                          </tbody>
+                        </th>
+                        <th
+                          style={{
+                            width: "200px",
+                            textAlign: "center",
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          Điểm chữ: {"A"}
+                        </th>
+                        <td
+                          style={{
+                            width: "100px",
+                            textAlign: "center",
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          <i
+                            className="pe-7s-check"
+                            style={{ fontSize: "25px", color: "green" }}
+                          ></i>
+                        </td>
+                        <th
+                          style={{
+                            width: "300px",
+                            textAlign: "center",
+                            paddingTop: "10px",
+                            height: "50px",
+                            border: "1px solid white",
+                          }}
+                        >
+                          <ModalTranscript />
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                </tr>
+              </tbody>
+            </Table>
           </CardBody>
         </Card>
       </Col>
