@@ -25,10 +25,10 @@ function Schedule() {
                 <div className="schedule__contents-name">
                     <span>THỜI KHÓA BIỂU THEO TUẦN HỌC KỲ HÈ, 2021 - 2022 <br />TUẦN 3 ( 04/07/2022 - 10/07/2022 )</span>
                 </div>
-                
+
                 <div className="schedule__header">
                     <div className="schedule__header-button">
-                        <BsFillCaretLeftFill/>
+                        <BsFillCaretLeftFill />
                     </div>
                     <div className="schedule__header-form">
                         <FormGroup>
@@ -43,7 +43,7 @@ function Schedule() {
                         </FormGroup>
                     </div>
                     <div className="schedule__header-button">
-                        <BsFillCaretRightFill/>
+                        <BsFillCaretRightFill />
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@ function Schedule() {
                 </div>
             </div>
 
-            <div className="schedule__note">
+            <Alert color="warning" className="schedule__note">
                 <span className="schedule__note-title">Ghi chú:</span> <br />
                 <span className="schedule__note-contents">
                     - Hai môn học trùng giờ học nhưng có ngày bắt đầu khác nhau thì Sinh viên vẫn học được. <br />
@@ -68,7 +68,7 @@ function Schedule() {
                     Cách 2: Điện thoại trong giờ hành chính 028 3715 4288;<br />
                     Cách 3: Liên hệ trực tiếp với Phòng Đào Tạo (tầng 1) hoặc qua email: pdt@vido.edu.vn;
                 </span>
-            </div>
+            </Alert>
 
         </div>
     )
