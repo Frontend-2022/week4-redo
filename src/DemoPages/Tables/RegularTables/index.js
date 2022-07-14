@@ -11,66 +11,63 @@ import PageTitle from '../../../Layout/AppMain/PageTitle';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import TableHover from './Examples/TableHover';
-import {
-    ResponsiveContainer,
-} from 'recharts';
-import {Pie} from 'react-chartjs-2';
-
+import Highcharts from 'highcharts';
 import {
     faAngleUp
 } from '@fortawesome/free-solid-svg-icons';
-import {Doughnut} from 'react-chartjs-2';
 
-function getRandomInt (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-const getState = () => ({
-    labels: [
-        'Cars',
-        'Trains',
-        'Airplanes'
-    ],
-    datasets: [{
-        data: [getRandomInt(50, 200), getRandomInt(100, 150), getRandomInt(150, 250)],
-        backgroundColor: [
-            '#cbd5dc',
-            '#71deb9',
-            '#ef869e'
-        ],
-        hoverBackgroundColor: [
-            '#7097e1',
-            '#4dd6a7',
-            '#eb6886'
-        ]
-    }]
-});
+
 export default class RegularTables extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-          data: {
-            labels: ["Đã thanh toán", "Học phí nợ"],
-            datasets: [
-              {
+            series: [{
+                name: 'Số tiền',
                 data: [
-                  200000000,
-                  100000000,
-                ],
-                backgroundColor: ['#070597',"#9a0505"],
-                hoverBackgroundColor: ['#070597ad', "#9a050591"],
-              },
-            ],
-          },
-          option:{
-            plugins: {
-                legend: {
-                    display: true,
-                }
-            }
-          }
-        };
-    };
+                    {
+                      name: 'Đã thanh toán',
+                      y: 20000000,
+                      color: '#2ecc71'
+                    },
+                    {
+                      name: 'Học phí nợ',
+                      y: 1000000,
+                      color: '#f1c40f'
+                    }
+                ]
+            }]
+        }
+    }
+
+    highChartsRender() {
+        Highcharts.chart({
+            tooltip: { enabled: false },
+            chart: {
+              type: 'pie',
+              renderTo: 'pie'
+            },
+            title: {
+              text:''
+            },
+            plotOptions: {
+              pie: {
+                dataLabels: {
+                    format: '{point.name}: {y}đ'
+                },
+                innerSize: '60%'
+              }
+            },
+            credits: {
+                enabled: false
+            },
+            series: this.state.series
+        });
+    }
+
+    componentDidMount() {
+        this.highChartsRender();
+    }
     render() {
     return (
         <Fragment>
@@ -129,8 +126,7 @@ export default class RegularTables extends React.Component {
                                                         <span className="ps-1">175.5%</span>
                                                     </div>
                                                 </div>
-                                                <div className="widget-chart-wrapper chart-wrapper-relative">
-                                                        <Doughnut data={this.state.data} width={600} height={250} options={{ maintainAspectRatio: false }}/>
+                                                <div className="widget-chart-wrapper chart-wrapper-relative" id='pie'>
                                                 </div>
                                             </div>
                                             </Col>
