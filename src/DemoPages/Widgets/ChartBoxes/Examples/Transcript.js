@@ -42,7 +42,7 @@ class Transcript extends Component {
           <Alert
             color="light"
             className="Table_header"
-            style={{ margin: "0 auto", display: "flex", width: "100%" }}
+            style={{ margin: "0 auto", display: "flex", width: "98%" }}
           >
             <table
               style={{ marginLeft: "50px", width: "90%" }}
@@ -160,7 +160,7 @@ class Transcript extends Component {
           <hr
             style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
           ></hr>
-          <Alert color="warning">
+          <Alert color="warning" style={{width:"98%",marginLeft:"1%"}}>
             <strong
               style={{
                 width: "130px",
