@@ -62,6 +62,9 @@ export default class RegularTables extends React.Component {
             credits: {
                 enabled: false
             },
+            accessibility: {
+                enabled: false
+            },
             series: this.state.series
         });
     }
