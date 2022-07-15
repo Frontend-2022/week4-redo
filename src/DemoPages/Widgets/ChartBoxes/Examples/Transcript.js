@@ -210,7 +210,7 @@ class Transcript extends Component {
             </div>
           </Alert>
           <ContentTranscript />
-          {/* <ContentTranscript /> */}
+          <ContentTranscript />
 
 
 
