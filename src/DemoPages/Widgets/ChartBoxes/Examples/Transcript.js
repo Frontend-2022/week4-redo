@@ -1,28 +1,17 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import ContentTranscript from "./ContentTranscript";
 import LineChartTranscript from "./LineChartTranscript";
 import "./Transcript.css";
-import {
-  Col,
-  Button,
-  CardTitle,
-  Card,
-  Alert,
-  Progress
-} from "reactstrap";
-import {
-  faAngleUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { Col, Button, CardTitle, Card, Alert, Progress } from "reactstrap";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Transcript extends Component {
   render() {
     return (
       <>
-        <div
-          className="contentMiddle">
-          <Alert className="bgTittle"
-          color="dark">
+        <div className="contentMiddle">
+          <Alert className="bgTittle" color="dark">
             <div
               style={{
                 color: "#A90001",
@@ -30,7 +19,7 @@ class Transcript extends Component {
                 fontSize: "15px",
                 fontWeight: "bold",
                 textTransform: "uppercase",
-                padding:"0",
+                padding: "0",
 
                 paddingLeft: "40px",
               }}
@@ -145,7 +134,7 @@ class Transcript extends Component {
                 width: "15%",
                 height: "34px",
                 marginTop: "9px",
-                justifyContent:"center",
+                justifyContent: "center",
               }}
             >
               <i
@@ -160,7 +149,7 @@ class Transcript extends Component {
           <hr
             style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }}
           ></hr>
-          <Alert color="warning" style={{width:"98%",marginLeft:"1%"}}>
+          <Alert color="warning" style={{ width: "98%", marginLeft: "1%" }}>
             <strong
               style={{
                 width: "130px",
@@ -212,8 +201,6 @@ class Transcript extends Component {
           <ContentTranscript />
           <ContentTranscript />
 
-
-
           <Col lg="6">
             <div className="card mb-3 widget-chart">
               <div className="widget-chart-content">
@@ -225,48 +212,54 @@ class Transcript extends Component {
                 <div className="widget-subheading ">
                   Điểm trung bình tích lũy
                 </div>
-                <div className="widget-description text-success">
-
-                </div>
+                <div className="widget-description text-success"></div>
                 <FontAwesomeIcon icon={faAngleUp} />
-                  <Col md="12">
-                                                            <div className="widget-content">
-                                                                <div className="widget-content-outer">
-                                                                    <div className="widget-content-wrapper">
-                                                                        <div className="widget-content-left me-3">
-                                                                            <div className="widget-numbers fsize-3 text-muted">
-                                                                                50%
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="widget-content-center">
-                                                                            <div className="text-muted opacity-6">
-                                                                                Mức độ hoàn thành
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="widget-progress-wrapper mt-1">
-                                                                        <Progress
-                                                                            className="progress-bar-sm progress-bar-animated-alt"
-                                                                            color="success"
-                                                                            value="50"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                        </Col>
+                <Col md="12">
+                  <div className="widget-content">
+                    <div className="widget-content-outer">
+                      <div className="widget-content-wrapper">
+                        <div className="widget-content-left me-3">
+                          <div className="widget-numbers fsize-3 text-muted">
+                            50%
+                          </div>
+                        </div>
+                        <div className="widget-content-center">
+                          <div className="text-muted opacity-6">
+                            Mức độ hoàn thành
+                          </div>
+                        </div>
+                      </div>
+                      <div className="widget-progress-wrapper mt-1">
+                        <Progress
+                          className="progress-bar-sm progress-bar-animated-alt"
+                          color="success"
+                          value="50"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Col>
               </div>
               <div className="widget-chart-wrapper chart-wrapper-relative">
-                <LineChartTranscript/>
+                <LineChartTranscript />
               </div>
             </div>
           </Col>
           <Card className="mb-3" body inverse color="danger">
-            <CardTitle className="text-white" style={{paddingTop:"20px",paddingLeft:"20px"}}>Ghi Chú</CardTitle>
-            <div style={{
-                paddingLeft:"20px",
-                paddingBottom:"20px"
-            }}>
+            <CardTitle
+              className="text-white"
+              style={{ paddingTop: "20px", paddingLeft: "20px" }}
+            >
+              Ghi Chú
+            </CardTitle>
+            <div
+              style={{
+                paddingLeft: "20px",
+                paddingBottom: "20px",
+              }}
+            >
               {" "}
-              -  Điểm trung bình tích lũy = Tổng điểm các môn
+              - Điểm trung bình tích lũy = Tổng điểm các môn
               <b>TRONG CTDT ĐÃ HỌC & ĐẠT</b>/ Tổng số tín chỉ{" "}
               <b>TRONG CTDT ĐÃ HỌC & ĐẠT</b>
               <br></br> - Điểm trung bình tổng kết = Tổng điểm các môn{" "}

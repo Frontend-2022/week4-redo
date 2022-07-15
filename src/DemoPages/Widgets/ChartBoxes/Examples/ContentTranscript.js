@@ -1,23 +1,13 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-
 import {
-  TabContent,
   Table,
-  Row,
   Col,
   Card,
   CardBody,
-  CardTitle,
-  Button,
-  ButtonGroup,
-  Modal,
-  Alert,
 } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./Transcript.css";
 import ContentTable from "./ContentTable";
-import ModalTranscript from "../../../Components/Modal/Examples/ModalTranscript";
 function ContentTranscript() {
   return (
     <>
