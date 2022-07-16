@@ -3,6 +3,7 @@ import {Button, Modal, ModalHeader, ModalBody, ModalFooter,Table} from 'reactstr
 // import '/src/DemoPages/Widgets/ChartBoxes/Examples/Transcript.css';
 
 class ModalTranscript extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +18,6 @@ class ModalTranscript extends React.Component {
             modal: !this.state.modal
         });
     }
-
     render() {
         return (
             <span className="d-inline-block mb-2 me-2">

@@ -1,10 +1,31 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
 import "./Transcript.css";
 import ModalTranscript from "../../../Components/Modal/Examples/ModalTranscript";
-
-function ContentTable() {
+import axios from "axios";
+const ContentTable = ({ item }) => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    // Get items from database
+    axios
+      .get(
+        "http://ims-api.viendong.edu.vn/api/beta/hocvien/bangdiemhocky?hocKyId=61",
+        {
+          headers: {
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1Nzk1MTYyOX0.MC_ezgd5xPIax_h6c0xEhjrqppvQ88ZlxnNz4Z6MMsk",
+          },
+        }
+      )
+      .then((response) => {
+        setData(response.data.data ? response.data.data : []);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <Table
@@ -30,7 +51,6 @@ function ContentTable() {
             style={{
               width: "516px",
               textAlign: "center",
-              // fontSize: "30px",
               border: "1px solid white",
               height: "50px",
               display: "flex",
@@ -38,7 +58,7 @@ function ContentTable() {
               justifyContent: "center",
             }}
           >
-            Nguyên lý thị giác
+            {item.mhten}
           </th>
           <th
             style={{
@@ -52,7 +72,10 @@ function ContentTable() {
             }}
           >
             Điểm:{" "}
-            <span style={{ fontSize: "20px", paddingLeft: "33px" }}>8.0</span>
+            <span style={{ fontSize: "20px", paddingLeft: "33px" }}>
+              {" "}
+              {item.tongdiem}
+            </span>
           </th>
           <th
             style={{
@@ -121,7 +144,7 @@ function ContentTable() {
                   borderRight: "1px solid white",
                 }}
               >
-                2
+                {item.soTinChi}
               </td>
               <td
                 style={{
@@ -129,7 +152,7 @@ function ContentTable() {
                   borderTop: "1px solid white",
                 }}
               >
-                2DH0211
+                {item.mhma}
               </td>
             </tbody>
           </th>
@@ -145,7 +168,10 @@ function ContentTable() {
             }}
           >
             Điểm chữ:{" "}
-            <span style={{ fontSize: "20px", paddingLeft: "20px" }}>A</span>
+            <span style={{ fontSize: "20px", paddingLeft: "20px" }}>
+              {" "}
+              {item.diemchu}
+            </span>
           </th>
           <td
             style={{
@@ -174,11 +200,12 @@ function ContentTable() {
               justifyContent: "center",
             }}
           >
+            {/* {data.map((item) => ( <ModalTranscript  item={item}/>))} */}
             <ModalTranscript />
           </th>
         </tr>
       </Table>
     </>
   );
-}
+};
 export default ContentTable;
