@@ -1,9 +1,15 @@
-import { React, useState } from 'react';
+import { React} from 'react';
 const ItemCard = ({item}) => {
-    const numberWithDot = (x) => {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    const handleHocphi = (it) => {
+        if (it.toString().includes("-")){
+            return '' ;}
+        else return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;
     }
-    
+    const handleThanhtoan = (it) => {
+        if (it.toString().includes("-")){
+            return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;}
+        else return '' ;
+    }
     return(
         <tr>
             <th scope="row"></th>
@@ -11,9 +17,8 @@ const ItemCard = ({item}) => {
             <td>{item.ngayTao}</td>
             <td>{item.lptma}</td>
             <td>{item.ptma}</td>
-            <td>{item.soTien}</td>
-            <td>{numberWithDot(20000000) +' VND'}</td>
-            <td>{numberWithDot(10000000) + ' VND'}</td>
+            <td>{handleHocphi(item.soTien)}</td>
+            <td>{handleThanhtoan(item.soTien)}</td>
             <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/" ><i class="pe-7s-print " > </i></a></td>
         </tr>
