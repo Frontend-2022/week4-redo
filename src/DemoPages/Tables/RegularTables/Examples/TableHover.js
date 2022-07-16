@@ -20,6 +20,13 @@ const TableHover = () => {
       });
     // eslint-disable-next-line
   }, [data]);
+
+  const Tongconlai = (temp) => {
+      for( let i of data){
+        temp += i.soTien;
+      }
+      return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
   return (
       <Table hover className="mb-0" style={{ color: 'black' }} tabIndex>
         <thead style={{ backgroundColor: '#a8a3a3' }}>
@@ -31,7 +38,6 @@ const TableHover = () => {
             <th>Mã</th>
             <th>Học phí</th>
             <th>Đã thanh toán</th>
-            <th>Còn lại</th>
             <th>Thanh toán</th>
             <th>In</th>
           </tr>
@@ -39,7 +45,14 @@ const TableHover = () => {
         <tbody>
           {data.map((item) => (
             <ItemCard item={item} />
-          ))}
+            ))}
+          <tr>
+          <th colSpan={5}></th>
+          <td style={{marginLeft:'8px', color:'red', fontWeight:'bold', fontSize:'1rem'}}>Tổng nợ</td>
+          <td style={{fontWeight:'bold', fontSize:'1rem' }}>{Tongconlai(0)}</td>
+          <td></td>
+          <td></td>
+          </tr>
         </tbody>
       </Table>
   );
