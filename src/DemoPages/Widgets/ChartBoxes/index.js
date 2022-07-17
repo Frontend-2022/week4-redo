@@ -1,22 +1,18 @@
 import React, {Fragment} from 'react';
-
 import Tabs from 'react-responsive-tabs';
-
 import PageTitle from '../../../Layout/AppMain/PageTitle';
-
-// Examples
-import BasicExample from './Examples/Basic';
-import ColorsExample from './Examples/Colors';
 import Transcript from './Examples/Transcript';
+import LineChartTranscript from './Examples/LineChartTranscript';
 const tabsContent = [
-    // {
-    //     title: 'Bascic',
-    //     content: <BasicExample/>
-    // },
+
     {
         title: 'Điểm',
         content: <Transcript/>
     },
+    //  {
+    //     title: 'Biểu đồ',
+    //     content: <LineChartTranscript/>
+    // },
 ];
 
 function getTabs() {

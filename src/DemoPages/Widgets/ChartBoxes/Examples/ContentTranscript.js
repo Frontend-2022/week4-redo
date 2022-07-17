@@ -1,12 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Table, Col, Card, CardBody } from "reactstrap";
 import "./Transcript.css";
 import ContentTable from "./ContentTable";
-import axios from "axios";
 const ContentTranscript = ({ data }) => {
 
-  if (!data||data.length==0) {
+  if (!data||data.length===0) {
     return <></>
   }
   return (

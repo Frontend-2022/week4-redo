@@ -1,10 +1,11 @@
-import Transcript from "./Transcript";
-import {Line,Bar,Bubble,PolarArea} from 'react-chartjs-2'
-import {React, useState}from "react";
+// import Transcript from "./Transcript";
+import {Line,} from 'react-chartjs-2'
+import {React,}from "react";
+
 
 const state ={
 
-  labels: ['Thang điểm','HK1', 'HK2', 'HK3','HK4','HK5','HK6','HK7','HK8'],
+  labels: ['Thang điểm','Hk1', 'HK2', 'HK3','HK4','HK5','HK6','HK7','HK8'],
   datasets:[
       {
           label: 'Điểm trung bình học kỳ',
@@ -25,18 +26,14 @@ const state ={
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [10,8.29, 7.72, 7.56, 8.27,0,0,0,0],
+          data: [10,7.52, 0, 0, 0,0,0,0,0],
       },
-    
+
   ]
 }
 
-function LineChartTranscript ()
+const LineChartTranscript =()=>
 {
-
-  // const [userData, setUserData] = useState({
-
-  // })
 
     return(
         <>

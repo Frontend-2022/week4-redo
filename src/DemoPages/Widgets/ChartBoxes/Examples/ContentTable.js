@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, {  useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
 import "./Transcript.css";
 import ModalTranscript from "../../../Components/Modal/Examples/ModalTranscript";
 import axios from "axios";
+// import { array } from "prop-types";
 const ContentTable = ({ item }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
