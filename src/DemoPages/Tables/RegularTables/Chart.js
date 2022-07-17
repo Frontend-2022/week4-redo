@@ -1,47 +1,67 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import PieChart from 'highcharts-react-official'
-
-const Chart = () =>{
-    const options = {
-        tooltip: { enabled: false },
-        title: {
-            text:''
-        },
-        chart: {
-            type: "pie",
-            renderTo: 'pie',
-         height: '310px',
-        },
-        plotOptions: {
-                      pie: {
-                        dataLabels: {
-                        format: '{point.name}:  {y}đ'
-                       },
-                       innerSize: '60%'
-                    }
+const options = {
+    tooltip: { enabled: false },
+    title: {
+        text:''
+    },
+    chart: {
+        type: "pie",
+        renderTo: 'pie',
+     height: '310px',
+    },
+    plotOptions: {
+                  pie: {
+                    dataLabels: {
+                    format: '{point.name}:  {y}'
                    },
-                   credits: {
-                                enabled: false
-                            },
-                           accessibility: {
-                               enabled: false
-                           },
-        series: [{
-                name: 'Số tiền',
-                data: [
-                    {
-                      name: 'Đã thanh toán',
-                      y: 20000000,
-                      color: '#2ecc71'
-                    },
-                    {
-                      name: 'Học phí nợ',
-                      y: 1000000,
-                      color: '#f1c40f'
-                    }
-                ]
-            }]
+                   innerSize: '60%'
+                }
+               },
+               credits: {
+                            enabled: false
+                        },
+                       accessibility: {
+                           enabled: false
+                       },
+    series: [{
+            name: 'Số tiền',
+            data: [
+                {
+                  name: 'Đã thanh toán',
+                  y: 20000000,
+                  color: '#2ecc71'
+                },
+                {
+                  name: 'Học phí nợ',
+                  y: 1000000,
+                  color: '#f1c40f'
+                }
+            ]
+        }]
+}
+
+function Chart ({item}) {
+    const Tonghocphi = (temp) => {
+        for( let i of item){
+            if(Math.sign(i.soTien)===1)
+                temp += i.soTien;
+        }
+        return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    const Tongdadong = (temp) => {
+        for( let i of item){
+            if(Math.sign(i.soTien)===-1)
+                temp += i.soTien;
+        }
+        return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    const Tongconlai = (temp) => {
+        for( let i of item){
+                temp += i.soTien;
+        }
+        return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
     // highChartsRender() {
@@ -58,7 +78,7 @@ const Chart = () =>{
     //         plotOptions: {
     //           pie: {
     //             dataLabels: {
-    //                 format: '{point.name}: {y}đ'
+    //                 format: '{point.name}: {y}'
     //             },
     //             innerSize: '60%'
     //           }
@@ -81,7 +101,7 @@ const Chart = () =>{
                                                         <i className="lnr-cog text-primary"/>
                                                     </div>
                                                     <div className="widget-numbers">
-                                                        45.8k
+                                                        {Tonghocphi(0)}
                                                     </div>
                                                     <div className="widget-subheading">
                                                         Học phí
