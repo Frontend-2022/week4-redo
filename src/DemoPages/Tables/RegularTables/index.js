@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-
 import {
     Row, Col,
     Card, CardBody,
@@ -9,17 +8,15 @@ import {
 
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import TableHover from './Examples/TableHover';
 import Chart from './Chart.js';
-import {
-    faAngleUp
-} from '@fortawesome/free-solid-svg-icons';
 
 
 
-export default class RegularTables extends React.Component {
-    render() {
+
+ const RegularTables =()=>{
+
     return (
         <Fragment>
             <TransitionGroup>
@@ -45,7 +42,7 @@ export default class RegularTables extends React.Component {
                                     <Card className="main-card mb-3">
                                         <CardBody>
                                             <CardTitle style={{color:'rgb(169, 0, 1)', fontWeight: 'bold', fontSize:'20px'}} >BẢNG KÊ CHI TIẾT HỌC PHÍ</CardTitle>
-                                            <TableHover />
+                                            <TableHover  />
                                         </CardBody>
                                     </Card>
                                     <Row style={{marginLeft:'auto'}}>
@@ -60,25 +57,7 @@ export default class RegularTables extends React.Component {
                                     <Card className="main-card " style={{width:'35%', display:'flex', height:'auto'}}>
                                         <Row>
                                     <Col>
-                                    <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
-                                                <div className="widget-chart-content">
-                                                    <div className="icon-wrapper rounded-circle">
-                                                        <div className="icon-wrapper-bg bg-primary"/>
-                                                        <i className="lnr-cog text-primary"/>
-                                                    </div>
-                                                    <div className="widget-numbers">
-                                                        45.8k
-                                                    </div>
-                                                    <div className="widget-subheading">
-                                                        Học phí
-                                                    </div>
-                                                    <div className="widget-description text-success">
-                                                        <FontAwesomeIcon icon={faAngleUp}/>
-                                                        <span className="ps-1">175.5%</span>
-                                                    </div>
-                                                </div>
-                                                <Chart/>
-                                            </div>
+                                        <Chart/>
                                             </Col>
                                             </Row>
                                     </Card>
@@ -92,4 +71,5 @@ export default class RegularTables extends React.Component {
         </Fragment>
     );
 };
-}
+
+export default RegularTables;

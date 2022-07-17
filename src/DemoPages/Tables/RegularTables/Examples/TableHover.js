@@ -1,10 +1,11 @@
 import { useState, useEffect, React } from 'react';
 import { Table } from 'reactstrap';
 import axios from 'axios';
-import ItemCard from './ItemCard';
 
 const TableHover = () => {
   const [data, setData] = useState([]);
+
+
   useEffect(() => {
     // Get items from database
     axios.get('http://ims-api.viendong.edu.vn/api/beta/hocvien/hocphi', {
@@ -27,6 +28,16 @@ const TableHover = () => {
       }
       return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
+  const handleHocphi = (it) => {
+    if (it.toString().includes("-")){
+        return '' ;}
+    else return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;
+}
+const handleThanhtoan = (it) => {
+    if (it.toString().includes("-")){
+        return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;}
+    else return '' ;
+}
   return (
       <Table hover className="mb-0" style={{ color: 'black' }} tabIndex>
         <thead style={{ backgroundColor: '#a8a3a3' }}>
@@ -44,7 +55,17 @@ const TableHover = () => {
         </thead>
         <tbody>
           {data.map((item) => (
-            <ItemCard item={item} />
+            <tr>
+            <th scope="row"></th>
+            <td>{item.hkma}</td>
+            <td>{item.ngayTao}</td>
+            <td>{item.lptma}</td>
+            <td>{item.ptma}</td>
+            <td>{handleHocphi(item.soTien)}</td>
+            <td>{handleThanhtoan(item.soTien)}</td>
+            <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
+            <td><a href="/" ><i class="pe-7s-print " > </i></a></td>
+        </tr>
             ))}
           <tr>
           <th colSpan={5}></th>
