@@ -11,8 +11,10 @@ import {
 } from 'reactstrap';
 import TableBordered from "./table-schedule/table-border";
 import FormSchedule from "./index";
+import { DateRangePicker } from 'rsuite';
 
 function Schedule() {
+
     return (
         <div className="scheduleCSS">
             <FormSchedule />
@@ -27,12 +29,14 @@ function Schedule() {
                 </div>
 
                 <div className="schedule__header">
-                    <div className="schedule__header-button">
+                    {/* <div className="schedule__header-button">
                         <BsFillCaretLeftFill />
-                    </div>
+                    </div> */}
+                    <span className="schedule__header-form--title">Xem TKB theo tuần học</span>
+                    
                     <div className="schedule__header-form">
-                        <FormGroup>
-                            <Label for="exampleSelect" className="schedule__header-form--title">Xem TKB theo tuần học</Label>
+                        <DateRangePicker appearance="subtle" placeholder="Subtle" style={{ width: 230 }} />
+                        {/* <FormGroup>
                             <Input type="select" name="select" id="exampleSelect" >
                                 <option >from <span >xx/yy/zzzz</span> to <span >xx/yy/zzzz</span></option>
                                 <option >from <span >xx/yy/zzzz</span> to <span >xx/yy/zzzz</span></option>
@@ -40,11 +44,11 @@ function Schedule() {
                                 <option >from <span >xx/yy/zzzz</span> to <span >xx/yy/zzzz</span></option>
                                 <option >from <span >xx/yy/zzzz1</span> to <span >xx/yy/zzzz1</span></option>
                             </Input>
-                        </FormGroup>
+                        </FormGroup> */}
                     </div>
-                    <div className="schedule__header-button">
+                    {/* <div className="schedule__header-button">
                         <BsFillCaretRightFill />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="schedule__contents-table">
