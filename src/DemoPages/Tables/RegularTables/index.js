@@ -1,4 +1,4 @@
-import React, {Fragment,useState,useEffect} from 'react';
+import React, {Fragment,useState,useEffect, Component} from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
     Row, Col,
@@ -15,25 +15,32 @@ import Chart from './Chart.js';
 
 
 
- const RegularTables =()=>{
-    const [data, setData] = useState([]);
-
-
-  useEffect(() => {
+ class RegularTables extends Component{
+    
+    state ={
+        HocPhi:[]
+    }
+    async componentDidMount() {
     // Get items from database
-    axios.get('http://ims-api.viendong.edu.vn/api/beta/hocvien/hocphi', {
+    let res = await axios.get('http://ims-api.viendong.edu.vn/api/beta/hocvien/hocphi', {
       headers: {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1NzY4Nzc3MH0.w9lduwIS3ULlyKaPvaQisrI9_TMF2xj918JpGp_Wauo"
       }
     })
-      .then(response => {
-        setData(response.data.data ? response.data.data : []);
-      })
-      .catch((error) => {
-        console.log(error)
-      });
+
+    this.setState({HocPhi: res.data && res.data.data ? res.data.data :[]})
+    console.log('res>>>>',res.data.data)
+    //   .then(response => {
+    //     this.setState({post : (response.data.data ? response.data.data : [])});
+    //     console.log(post)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error)
+    //   }
+    //   );
     // eslint-disable-next-line
-  }, [data]);
+  };
+  render() {
     return (
         <Fragment>
             <TransitionGroup>
@@ -59,11 +66,11 @@ import Chart from './Chart.js';
                                     <Card className="main-card mb-3">
                                         <CardBody>
                                             <CardTitle style={{color:'rgb(169, 0, 1)', fontWeight: 'bold', fontSize:'20px'}} >BẢNG KÊ CHI TIẾT HỌC PHÍ</CardTitle>
-                                            <TableHover item={data}  />
+                                            <TableHover item={this.state.HocPhi}  />
                                         </CardBody>
                                     </Card>
                                     <Row style={{marginLeft:'auto'}}>
-                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'150px', paddingLeft:'0', height:'250px'}}>
+                                    <Card className="main-card mb-3" style={{width:'46%', marginRight:'60px', paddingLeft:'0', height:'250px'}}>
                                         <CardBody >
                                             <CardTitle style={{textTransform:'none', color:'red', fontSize:'20px'}}>Ghi chú</CardTitle>
                                                 <p style={{color:'black'}}> - Phần mềm tính học phí và hiển thị học phí của sinh viên (SV) đang trong thời gian chạy thử nghiệm. Phòng Đào tạo mong Quý Phụ huynh và SV thông cảm về những sai sót có thể phát sinh trong giai đoạn này.</p>
@@ -71,10 +78,10 @@ import Chart from './Chart.js';
                                                 <p style={{color:'black'}}> - SV có trách nhiệm tự kiểm tra học phí, khi có thắc mắc liên hệ số ĐT: 0353 4138 06 hoặc email: trangnguyen@vido.edu.vn</p>
                                         </CardBody>
                                     </Card>
-                                    <Card className="main-card " style={{width:'35%', display:'flex', height:'auto'}}>
+                                    <Card className="main-card " style={{width:'48%', display:'flex', height:'auto'}}>
                                         <Row>
                                     <Col>
-                                        <Chart item={data}/>
+                                        <Chart item={this.state.HocPhi}/>
                                             </Col>
                                             </Row>
                                     </Card>
@@ -88,5 +95,5 @@ import Chart from './Chart.js';
         </Fragment>
     );
 };
-
+ }
 export default RegularTables;
