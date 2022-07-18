@@ -38,7 +38,6 @@ const Transcript = () => {
       <ContentHeader data={data}/>
       <ContentTranscript data={data} />
       <LineChartTranscript data={data} />
-
         {/* Note */}
         <Card className="mb-3" body inverse color="danger">
           <CardTitle

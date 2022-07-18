@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Transcript.css";
 import { Button, Alert } from "reactstrap";
 const ContentHeader = ({ data }) => {
+  
   if (!data || data.length === 0) {
     return <></>;
   }
-
   // state ={
   //     UserInfors:[]
 
