@@ -33,8 +33,8 @@ class ModalTranscript extends React.Component {
         this.setState({
             TranScript: res && res.data && res.data.data ? res.data.data :[]
         })
-        console.log('>>> res:  ', res.data.data[3].diemGK);
-       
+        // console.log('>>> res:  ', res.data.data[3].diemGK);
+
     }
 
 
