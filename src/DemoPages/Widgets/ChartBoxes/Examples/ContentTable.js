@@ -92,7 +92,7 @@ const ContentTable = ({ item }) => {
           </th>
           <th
             style={{
-              width: "300px",
+              width: "200px",
 
               height: "50px",
               border: "1px solid white",
@@ -191,7 +191,7 @@ const ContentTable = ({ item }) => {
           </td>
           <th
             style={{
-              width: "300px",
+              width: "200px",
               textAlign: "center",
               paddingTop: "10px",
               height: "50px",

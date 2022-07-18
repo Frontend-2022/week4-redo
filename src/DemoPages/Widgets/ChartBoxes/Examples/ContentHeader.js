@@ -84,24 +84,13 @@ class ContentHeader extends React.Component
           </tr>
 
           <tr>
-            <th colSpan={2}>Ngày sinh: </th>
+            <th colSpan={2}>Khóa học: </th>
             <td colSpan={3} className="td-css">
-              {" "}
+            {this.state.UserInfors.khoahoc}
             </td>
             <th colSpan={2}>Lớp: </th>
             <td colSpan={3} className="td-css">
             {this.state.UserInfors.malop}
-            </td>
-          </tr>
-
-          <tr>
-          <th colSpan={2}>Khóa học: </th>
-            <td colSpan={3} className="td-css">
-            {this.state.UserInfors.khoahoc}
-            </td>
-            <th colSpan={2}>Nơi sinh: </th>
-            <td colSpan={3} className="td-css">
-              {" "}
             </td>
           </tr>
         </tbody>
