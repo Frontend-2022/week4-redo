@@ -27,8 +27,8 @@ const handleThanhtoan = (it) => {
             <th>Ngày tạo</th>
             <th>Loại PT</th>
             <th>Mã</th>
-            <th>Học phí</th>
             <th>Đã thanh toán</th>
+            <th>Học phí phát sinh</th>
             <th>Thanh toán</th>
             <th>In</th>
           </tr>
