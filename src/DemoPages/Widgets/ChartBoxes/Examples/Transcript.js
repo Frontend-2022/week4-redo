@@ -2,9 +2,7 @@ import React, {useState, useEffect, } from "react";
 import ContentTranscript from "./ContentTranscript";
 import LineChartTranscript from "./LineChartTranscript";
 import "./Transcript.css";
-import { Col,  CardTitle, Card, Progress } from "reactstrap";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {CardTitle, Card,} from "reactstrap";
 import axios from "axios";
 import ContentHeader from "./ContentHeader";
 const Transcript = () => {
@@ -37,54 +35,9 @@ const Transcript = () => {
   return (
     <>
       <div className="contentMiddle">
-      <ContentHeader/>
-
+      <ContentHeader data={data}/>
       <ContentTranscript data={data} />
-
-
-        {/* chart */}
-        <Col lg="6">
-          <div className="card mb-3 widget-chart">
-            <div className="widget-chart-content">
-              <div className="icon-wrapper rounded-circle">
-                <div className="icon-wrapper-bg bg-primary" />
-                <i className="lnr-graduation-hat icon-gradient bg-happy-itmeo" />
-              </div>
-              <div className="widget-numbers"> {data[0].trungbinhhk}</div>
-              <div className="widget-subheading ">Điểm trung bình tích lũy</div>
-              <div className="widget-description text-success"></div>
-              <FontAwesomeIcon icon={faAngleUp} />
-              <Col md="12">
-                <div className="widget-content">
-                  <div className="widget-content-outer">
-                    <div className="widget-content-wrapper">
-                      <div className="widget-content-left me-3">
-                        <div className="widget-numbers fsize-3 text-muted">
-                          12.5%
-                        </div>
-                      </div>
-                      <div className="widget-content-center">
-                        <div className="text-muted opacity-6">
-                          Mức độ hoàn thành
-                        </div>
-                      </div>
-                    </div>
-                    <div className="widget-progress-wrapper mt-1">
-                      <Progress
-                        className="progress-bar-sm progress-bar-animated-alt"
-                        color="success"
-                        value="12.5"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </div>
-            <div className="widget-chart-wrapper chart-wrapper-relative">
-              <LineChartTranscript data={data} />
-            </div>
-          </div>
-        </Col>
+      <LineChartTranscript data={data} />
 
         {/* Note */}
         <Card className="mb-3" body inverse color="danger">

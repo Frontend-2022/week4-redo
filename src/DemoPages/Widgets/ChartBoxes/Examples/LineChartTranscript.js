@@ -1,7 +1,7 @@
 // import Transcript from "./Transcript";
 import {Line,} from 'react-chartjs-2'
 import React ,{}from 'react';
-import Transcript from './Transcript';
+import { Col,   Progress } from "reactstrap";
 import axios from 'axios';
 
 const state ={
@@ -54,11 +54,39 @@ class LineChartTranscript extends React.Component
         this.setState({
             Transcript: res&& res.data&&res.data.data? res.data.data :[],
         })
-        console.log('>>> response: ',res.data.data[0].trungbinhhk);
+        // console.log('>>> response: ',res.data.data[0].trungbinhhk);
     }
     render(){
         return(
-            <Line data={state} width={600} height={150}/>
+            <>
+              <Col md="12">
+                <div className="widget-content">
+                  <div className="widget-content-outer">
+                    <div className="widget-content-wrapper">
+                      <div className="widget-content-left me-3">
+                        <div className="widget-numbers fsize-3 text-muted">
+                          12.5%
+                        </div>
+                      </div>
+                      <div className="widget-content-center">
+                        <div className="text-muted opacity-6">
+                          Mức độ hoàn thành
+                        </div>
+                      </div>
+                    </div>
+                    <div className="widget-progress-wrapper mt-1">
+                      <Progress
+                        className="progress-bar-sm progress-bar-animated-alt"
+                        color="success"
+                        value="12.5"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Col>
+                <Line data={state} width={600} height={150}/>
+            </>
+
         )
     }
 
