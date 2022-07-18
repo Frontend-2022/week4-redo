@@ -11,7 +11,7 @@ const ContentTable = ({ item }) => {
     // Get items from database
     axios
       .get(
-        "http://ims-api.viendong.edu.vn/api/beta/hocvien/bangdiemhocky?hocKyId=61",
+        "http://ims-api.viendong.edu.vn/api/beta/hocvien/bangdiemhocky?hocKyId=60",
         {
           headers: {
             token:

@@ -25,7 +25,7 @@ class ContentHeader extends React.Component
             UserInfors: res && res.data && res.data.hocVien ? res.data.hocVien :[],
             khoiNganh:  res && res.data && res.data.hocVien ? res.data.hocVien.khoiNganh :[]
         })
-        console.log('>>> res:  ', res.data.hocVien.khoiNganh.ten);
+        // console.log('>>> res:  ', res.data.hocVien.khoiNganh.ten);
     }
     render(){
         // let {UserInfors,khoiNganh} =this.state;
