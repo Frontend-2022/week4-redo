@@ -7,8 +7,9 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import PageTitle from '../../../Layout/AppMain/PageTitle';
-
-
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./index.css";
 import TableHover from './Examples/TableHover';
 import Chart from './Chart.js';
 
@@ -18,7 +19,8 @@ import Chart from './Chart.js';
  class RegularTables extends Component{
     
     state ={
-        HocPhi:[]
+        HocPhi:[],
+        filter:[]
     }
     async componentDidMount() {
     // Get items from database
@@ -29,7 +31,6 @@ import Chart from './Chart.js';
     })
 
     this.setState({HocPhi: res.data && res.data.data ? res.data.data :[]})
-    console.log('res>>>>',res.data.data)
     //   .then(response => {
     //     this.setState({post : (response.data.data ? response.data.data : [])});
     //     console.log(post)
@@ -41,6 +42,38 @@ import Chart from './Chart.js';
     // eslint-disable-next-line
   };
   render() {
+    const checkFilter = (option) => {
+        // No need to check for searched value
+          if (option[0] === 'all')
+            return this.state.HocPhi;
+          else if (option[0] === 'Học kỳ 2, 2021 - 2022')
+            return this.state.HocPhi.filter((item) => item["hkma"] === '212');
+        else if (option[0] === 'Học kỳ 1, 2021 - 2022')
+            return this.state.HocPhi.filter((item) => item["hkma"] === '211');
+        else if (option[0] === 'Học kỳ hè, 2020 - 2021')
+            return this.state.HocPhi.filter((item) => item["hkma"] === '203');
+        else if (option[0] === 'Học kỳ 2, 2020 - 2021')
+            return this.state.HocPhi.filter((item) => item["hkma"] === '202');
+        else
+            return this.state.HocPhi.filter((item) => item["hkma"] === '201');
+    }
+    const Tongconlai = (temp) => {
+        for( let i of this.state.HocPhi){
+                temp += i.soTien;
+        }
+        return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+    const toFindDuplicates = (temp) => {
+        var uniques = [];
+        var itemsFound = {};
+        for(var i = 0, l = temp.length; i < l; i++) {
+            var stringified = JSON.stringify(temp[i]['hkma']);
+            if(itemsFound[stringified]) { continue; }
+            uniques.push(temp[i]);
+            itemsFound[stringified] = true;
+        }
+        return uniques;
+    }
     return (
         <Fragment>
             <TransitionGroup>
@@ -50,15 +83,31 @@ import Chart from './Chart.js';
                         <PageTitle
                         heading="Học phí"
                         icon="pe-7s-calculator icon-gradient bg-happy-itmeo" />
+                        <Col lg="6">
+        <div className="card2 mb-3 widget-chart">
+          <div className="widget-chart-content">
+            <div className="icon-wrapper rounded-circle">
+              <div className="icon-wrapper-bg bg-dark" />
+              <i className="pe-7s-calculator icon-gradient bg-happy-itmeo " />
+            </div>
+            <div className="average">{Tongconlai(0)}</div>
+            <div className="textavg ">Học phí nợ</div>
+            <div className="widget-description text-success"></div>
+            <FontAwesomeIcon icon={faAngleUp} />
+          </div>
+          <div className="widget-chart-wrapper chart-wrapper-relative"></div>
+        </div>
+      </Col>
                         <div>
                         <FormGroup style={{display:'flex'}}>
                             <Label for="exampleSelect" style={{width: 'auto', padding: '6px 18px 0 0', fontWeight: 'bold', fontSize:'1rem'}}>Học kỳ</Label>
-                                <Input type="select" name="select" id="exampleSelect"  style={{width: '94%'}}>
-                                    <option >Tất cả</option>
-                                    <option >Học kỳ</option>
-                                    <option >Học kỳ</option>
-                                    <option >Học kỳ</option>
-                                    <option >Học kỳ</option>
+                                <Input type="select" name="select" id="exampleSelect"  style={{width: '94%'}} defaultValue={0}>
+                                    <option value={0}>Tất cả</option>
+                                    {toFindDuplicates(this.state.HocPhi).map((item) => (
+              <>
+                                <option value={item.hkten}>{item.hkten}</option>
+              </>
+            ))}
                                 </Input>
                         </FormGroup>
                             <Row>

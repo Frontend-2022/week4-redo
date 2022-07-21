@@ -1,6 +1,6 @@
 import { React } from 'react';
-import { Table } from 'reactstrap';
-
+import {Table,Col,Card,CardBody } from 'reactstrap';
+import '../index.css'
 const TableHover = ({item}) => {
   const Tongconlai = (temp) => {
       for( let i of item){
@@ -19,22 +19,18 @@ const handleThanhtoan = (it) => {
     else return '' ;
 }
   return (
-      <Table hover className="mb-0" style={{ color: 'black' }} tabIndex>
-        <thead style={{ backgroundColor: '#a8a3a3' }}>
-          <tr >
-            <th scope='col'>STT</th>
-            <th>Học kỳ</th>
-            <th>Ngày tạo</th>
-            <th>Loại PT</th>
-            <th>Mã</th>
-            <th>Đã thanh toán</th>
-            <th>Học phí phát sinh</th>
-            <th>Thanh toán</th>
-            <th>In</th>
-          </tr>
-        </thead>
-        <tbody>
-          {item.map((item) => (
+    <>
+    <Col lg="6">
+    <Card style={{ marginBottom: "6.5rem" }}>
+      <CardBody style={{ padding: "0 !important" }}>
+        <Table responsive className="mb-0">
+          <thead style={{ backgroundColor: "#DCDCDC" }}>
+            <tr>
+              <td colSpan="9" style={{ borderBottomColor: "white" }}>
+              </td>
+            </tr>
+          </thead>
+        {/* <tbody>
             <tr>
             <th scope="row"></th>
             <td>{item.hkma}</td>
@@ -46,7 +42,6 @@ const handleThanhtoan = (it) => {
             <td><a href="/"> <i class="pe-7s-piggy " > </i></a></td>
             <td><a href="/" ><i class="pe-7s-print " > </i></a></td>
         </tr>
-            ))}
           <tr>
           <th colSpan={5}></th>
           <td style={{marginLeft:'8px', color:'red', fontWeight:'bold', fontSize:'1rem'}}>Tổng nợ</td>
@@ -54,8 +49,141 @@ const handleThanhtoan = (it) => {
           <td></td>
           <td></td>
           </tr>
-        </tbody>
-      </Table>
+        </tbody> */}
+        <tbody>
+                  <div className="Content-Table">
+                    <div className="Table--left">
+                      <div className="Table--left--content">
+                        <div className="GPA_hk">
+                          <div
+                            style={{
+                              verticalAlign: "middle",
+                              paddingTop: "25%",
+                            }}
+                          >
+                            <div style={{ fontWeight: "700" }}>
+                              Học phí nợ
+                            </div>
+                            <div style={{ fontSize: "45px" }}>
+                              {Tongconlai(0)}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>{" "}
+                    {/* Table left */}
+                    
+                    <div className="Table--right">
+                    {item.map((item) => (
+                        <div className="Table--right-content">
+                          <div className="subject">
+                            <div style={{ width: "50%" }}>{item.hkten}</div>
+                            <div style={{ height: "100%" }}>
+                              <div
+                                className="subjectDetail"
+                                style={{ marginTop: "20px" }}
+                              >
+                                Mã: {item.hkma}
+                              </div>
+                              <div className="subjectDetail">
+                                {`Mã MH:\t\t`}
+                                {item.mhma}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="item--content">
+                            <th
+                              style={{
+                                width: "100%",
+                                textAlign: "center",
+                                height: "50px",
+                                borderTop: "1px solid white",
+                                backgroundColor: " rgb(105 144 102)",
+                                borderRadius: "0 0 50px 50px",
+                              }}
+                            >
+                              <thead
+                                style={{
+                                  width: "190px",
+                                  borderBottom: "1px solid white",
+                                }}
+                              >
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm số
+                                </th>
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm chữ
+                                </th>
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm GK
+                                </th>
+                                <th style={{ width: "190px" }}> Điểm CK</th>
+                              </thead>
+                              <tbody>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {item.tongdiem}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {item.diemchu}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {item.diemGK}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                  }}
+                                >
+                                  {item.diemCK}
+                                </td>
+                              </tbody>
+                            </th>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </tbody>
+      
+        </Table>
+        </CardBody>
+        </Card>
+        </Col>
+        </>
   );
 }
 export default TableHover;
