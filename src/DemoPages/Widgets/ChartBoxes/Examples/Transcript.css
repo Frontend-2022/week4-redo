@@ -22,7 +22,7 @@
   margin: 1rem auto;
 }
 .textavg {
-  margin: -0.5rem 0 0;
+  margin: 0.4rem 0 0;
   display: block;
   opacity: 0.6;
   text-align: center;
@@ -134,7 +134,12 @@ th {
   width: 245px;
   height: 250px;
   border-radius: 50%;
-  background-color: rgb(105 144 102);
+  /* background-color: rgb(105 144 102); */
+  background-image: linear-gradient(
+    to top,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
   color: white;
   text-align: center;
   font-size: large;
@@ -172,7 +177,7 @@ th {
 .Table--right-content {
   width: 90%;
   height: 24%;
-  background-color: rgb(156 201 153);
+  background-color: #50d08e;
   border: 1px solid white;
   border-collapse: collapse;
   margin-bottom: 15px !important;
@@ -191,17 +196,40 @@ th {
   display: flex;
   align-items: center;
 }
+.subject--content--child {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  border-top: 1px solid white;
+  border-radius: 0 0 50px 50px;
+  background-image: linear-gradient(
+    to top,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
+}
 .subjectDetail {
   font-size: 12px;
   margin-left: 40px;
   width: 179px;
   height: 30px;
-  background-color: rgb(105 144 102);
+  background-image: linear-gradient(
+    to top,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
   color: white;
+  font-weight: bolder;
   border-radius: 20px;
   padding-left: 8px;
   margin-bottom: 5px;
   margin-top: 4px;
   display: flex;
   align-items: center;
+}
+.mb-3a {
+  margin-top: 40px;
+}
+.widget-content-cus {
+  margin-bottom: 10px;
 }

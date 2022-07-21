@@ -4,10 +4,24 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Transcript.css";
 import { Button, Alert } from "reactstrap";
+import { get } from "react-scroll/modules/mixins/scroller";
+
 const ContentHeader = ({ item }) => {
   const Countavg = item.map((item) => item.trungbinhhk);
   const average = Countavg.reduce((a, b) => a + b, 0) / Countavg.length;
   const roundedAverage = average.toFixed(2);
+
+  let TotalCredits = item.map((item) =>
+    item.subjects.map((subject) => subject.soTinChi)
+  );
+  var arr = [];
+  for (let i = 0; i < TotalCredits.length; i++) {
+    var getTotalCredits = TotalCredits[i].reduce((a, b) => a + b, 0);
+    arr[i] = [getTotalCredits];
+  }
+
+  console.log("arr =", arr);
+
   return (
     <>
       <Col lg="6">
@@ -17,8 +31,14 @@ const ContentHeader = ({ item }) => {
               <div className="icon-wrapper-bg bg-dark" />
               <i className="lnr-graduation-hat icon-gradient bg-happy-itmeo " />
             </div>
-            <div className="average">{roundedAverage}</div>
             <div className="textavg ">Điểm trung bình tích lũy</div>
+            <div className="average">{roundedAverage}</div>
+            <div
+              className="textavg "
+              style={{ fontSize: "15px", opacity: 0.8 }}
+            >
+              Tín chỉ tích lũy : <span style={{ fontSize: "25px" }}>10</span>
+            </div>
             <div className="widget-description text-success"></div>
             <FontAwesomeIcon icon={faAngleUp} />
           </div>

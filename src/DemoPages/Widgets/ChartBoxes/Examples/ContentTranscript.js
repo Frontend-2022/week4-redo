@@ -58,16 +58,7 @@ const ContentTranscript = ({ item }) => {
                             </div>
                           </div>
                           <div className="subject--content">
-                            <th
-                              style={{
-                                width: "100%",
-                                textAlign: "center",
-                                height: "50px",
-                                borderTop: "1px solid white",
-                                backgroundColor: " rgb(105 144 102)",
-                                borderRadius: "0 0 50px 50px",
-                              }}
-                            >
+                            <th className="subject--content--child">
                               <thead
                                 style={{
                                   width: "190px",

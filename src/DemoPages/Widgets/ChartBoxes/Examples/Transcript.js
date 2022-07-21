@@ -5,7 +5,7 @@ import "./Transcript.css";
 import { CardTitle, Card } from "reactstrap";
 import axios from "axios";
 import ContentHeader from "./ContentHeader";
-
+import HighChartTs from "./HightChartTs";
 class Transcript extends React.Component {
   state = {
     TableTranscript: [],
@@ -67,19 +67,17 @@ class Transcript extends React.Component {
     this.setState({
       TableTranscript: arr.sort((a, b) => b.hkid - a.hkid),
     });
-
-    // console.log("tesst", this.state.TableTranscript);
   }
 
   render() {
-    let { test } = this.state.TableTranscript;
     return (
       <>
         <div className="contentMiddle">
           <ContentHeader item={this.state.TableTranscript} />
           <ContentTranscript item={this.state.TableTranscript} />
-          <LineChartTranscript item={this.state.TableTranscript} />
-          <Card className="mb-3" body inverse color="danger">
+          {/* <LineChartTranscript item={this.state.TableTranscript} /> */}
+          <HighChartTs item={this.state.TableTranscript} />
+          <Card className="mb-3 mb-3a" body inverse color="danger">
             <CardTitle
               className="text-white"
               style={{ paddingTop: "20px", paddingLeft: "20px" }}
