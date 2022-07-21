@@ -21,9 +21,7 @@ const handleThanhtoan = (it) => {
   return (
     <>
     <Col lg="6">
-    <Card style={{ marginBottom: "6.5rem" }}>
-      <CardBody style={{ padding: "0 !important" }}>
-        <Table responsive className="mb-0">
+
           <thead style={{ backgroundColor: "#DCDCDC" }}>
             <tr>
               <td colSpan="9" style={{ borderBottomColor: "white" }}>
@@ -73,7 +71,7 @@ const handleThanhtoan = (it) => {
                     </div>{" "}
                     {/* Table left */}
                     
-                    <div className="Table--right">
+                    <div className="Table--right" style={{backgroundColor: 'transparent'}}>
                     {item.map((item) => (
                         <div className="Table--right-content">
                           <div className="subject">
@@ -179,9 +177,7 @@ const handleThanhtoan = (it) => {
                   </div>
                 </tbody>
       
-        </Table>
-        </CardBody>
-        </Card>
+
         </Col>
         </>
   );
