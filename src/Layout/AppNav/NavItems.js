@@ -120,4 +120,9 @@ export const ChartsNav = [
         label: 'ChartJS',
         to: '#/charts/chartjs',
     },
+    {
+        icon: 'pe-7s-graph2',
+        label: 'HighChart',
+        to: '#/charts/highchart',
+    }
 ];

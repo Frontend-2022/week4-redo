@@ -63,36 +63,6 @@ function Chart ({item}) {
         }
         return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
-
-    // highChartsRender() {
-    //     Highcharts.chart({
-    //         tooltip: { enabled: false },
-    //         chart: {
-    //           type: 'pie',
-    //           renderTo: 'pie',
-    //           height: '310px',
-    //         },
-    //         title: {
-    //           text:''
-    //         },
-    //         plotOptions: {
-    //           pie: {
-    //             dataLabels: {
-    //                 format: '{point.name}: {y}'
-    //             },
-    //             innerSize: '60%'
-    //           }
-    //         },
-    //         credits: {
-    //             enabled: false
-    //         },
-    //         accessibility: {
-    //             enabled: false
-    //         },
-    //         series: this.state.series
-    //     });
-    // }
-
     return (
         <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
                                                 <div className="widget-chart-content">

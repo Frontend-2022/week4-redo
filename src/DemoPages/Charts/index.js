@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 // Charts
 
 import ChartsChartJs from "./ChartJs/";
+import ChartsHighChart from "./HighChart/";
 
 // Layout
 
@@ -22,6 +23,7 @@ const Charts = ({match}) => (
                     {/* Charts */}
 
                     <Route path={`${match.url}/chartjs`} component={ChartsChartJs}/>
+                    <Route path={`${match.url}/highchart`} component={ChartsHighChart}/>
 
                 </div>
                 <AppFooter/>
