@@ -1,6 +1,6 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import BarChart from 'highcharts-react-official'
+import BarChart from 'highcharts-react-official';
 const options = {
     maintainAspectRatio: true,
     tooltip: {

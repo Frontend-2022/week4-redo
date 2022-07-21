@@ -1,6 +1,6 @@
 import React from 'react';
 import Highcharts from 'highcharts';
-import LineChart from 'highcharts-react-official'
+import LineChart from 'highcharts-react-official';
 const options = {
   maintainAspectRatio: true,
   title: {
