@@ -1,76 +1,157 @@
 import React from "react";
 import { Table, Col, Card, CardBody } from "reactstrap";
 import "./Transcript.css";
-import ContentTable from "./ContentTable";
-const ContentTranscript = ({ data }) => {
-
-  if (!data||data.length===0) {
-    return <></>
-  }
+const ContentTranscript = ({ item }) => {
   return (
     <>
-      <Col lg="6">
-        <Card className="main-card mb-3">
-          <CardBody style={{ padding: "0 !important" }}>
-            <Table responsive className="mb-0">
-              <thead style={{ backgroundColor: "#DCDCDC" }}>
-                <tr>
-                  <td colSpan="9" style={{ borderBottomColor: "white" }}>
-                    <b style={{ color: "#808080" }}>{data[0].hkten}</b>
-                  </td>
-                </tr>
-              </thead>
+      {item.map((item) => (
+        <Col lg="6">
+          <Card style={{ marginBottom: "6.5rem" }}>
+            <CardBody style={{ padding: "0 !important" }}>
+              <Table responsive className="mb-0">
+                <thead style={{ backgroundColor: "#DCDCDC" }}>
+                  <tr>
+                    <td colSpan="9" style={{ borderBottomColor: "white" }}>
+                      <b style={{ color: "#808080" }}>{item.hkten}</b>
+                    </td>
+                  </tr>
+                </thead>
 
-              <tbody>
-                <tr>
-                  <div
-                    style={{
-                      width: "360px",
-                      height: "461px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderWidth: "1px solid white",
-                    }}
-                  >
-                    <th
-                      scope="row"
-                      style={{
-                        width: "99%",
-                        height: "320px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        padding: "0 !important",
-                      }}
-                    >
-                      <div className="GPA_hk">
-                        <div
-                          style={{ verticalAlign: "middle", paddingTop: "25%" }}
-                        >
-                          <div>Điểm trung bình học kì</div>
-                          <div style={{ fontSize: "80px" }}>
-                            {" "}
-                            {data[0].trungbinhhk}
+                <tbody>
+                  <div className="Content-Table">
+                    <div className="Table--left">
+                      <div className="Table--left--content">
+                        <div className="GPA_hk">
+                          <div
+                            style={{
+                              verticalAlign: "middle",
+                              paddingTop: "25%",
+                            }}
+                          >
+                            <div style={{ fontWeight: "700" }}>
+                              Điểm trung bình học kỳ
+                            </div>
+                            <div style={{ fontSize: "80px" }}>
+                              {item.trungbinhhk}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </th>
+                    </div>{" "}
+                    {/* Table left */}
+                    <div className="Table--right">
+                      {item.subjects.map((subject) => (
+                        <div className="Table--right-content">
+                          <div className="subject">
+                            <div style={{ width: "50%" }}>{subject.mhten}</div>
+                            <div style={{ height: "100%" }}>
+                              <div
+                                className="subjectDetail"
+                                style={{ marginTop: "20px" }}
+                              >
+                                Số TC: {subject.soTinChi}
+                              </div>
+                              <div className="subjectDetail">
+                                {`Mã MH:\t\t`}
+                                {subject.mhma}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="subject--content">
+                            <th
+                              style={{
+                                width: "100%",
+                                textAlign: "center",
+                                height: "50px",
+                                borderTop: "1px solid white",
+                                backgroundColor: " rgb(105 144 102)",
+                                borderRadius: "0 0 50px 50px",
+                              }}
+                            >
+                              <thead
+                                style={{
+                                  width: "190px",
+                                  borderBottom: "1px solid white",
+                                }}
+                              >
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm số
+                                </th>
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm chữ
+                                </th>
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  Điểm GK
+                                </th>
+                                <th style={{ width: "190px" }}> Điểm CK</th>
+                              </thead>
+                              <tbody>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {subject.tongdiem}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {subject.diemchu}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {subject.diemGK}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                  }}
+                                >
+                                  {subject.diemCK}
+                                </td>
+                              </tbody>
+                            </th>
+                          </div>
+                          {/* subject content */}
+                        </div>
+                      ))}
+                      {/* Table right Content */}
+                    </div>
                   </div>
-                  <th
-                    scope="row"
-                    style={{ width: "75%", padding: "0 !important" }}
-                  >
-                    {data.map((item) => (
-                      <ContentTable item={item} />
-                    ))}
-                  </th>
-                </tr>
-              </tbody>
-            </Table>
-          </CardBody>
-        </Card>
-      </Col>
+                  {/* Content-Table */}
+                </tbody>
+              </Table>
+            </CardBody>
+          </Card>
+        </Col>
+      ))}
     </>
   );
 };
