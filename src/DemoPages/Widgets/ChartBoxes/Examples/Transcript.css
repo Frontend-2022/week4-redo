@@ -177,13 +177,13 @@ th {
 .Table--right-content {
   width: 90%;
   height: 24%;
-  background-color: #50d08e;
+  background-color: #157448;
   border: 1px solid white;
   border-collapse: collapse;
   margin-bottom: 15px !important;
   border-radius: 50px;
 }
-.Table--right-content .subject {
+.Table--right-content .subject1 {
   height: 69%;
   display: flex;
   align-items: center;

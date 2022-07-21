@@ -42,7 +42,7 @@ const ContentTranscript = ({ item }) => {
                     <div className="Table--right">
                       {item.subjects.map((subject) => (
                         <div className="Table--right-content">
-                          <div className="subject">
+                          <div className="subject1">
                             <div style={{ width: "50%" }}>{subject.mhten}</div>
                             <div style={{ height: "100%" }}>
                               <div
