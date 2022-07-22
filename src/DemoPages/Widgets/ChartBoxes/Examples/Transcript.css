@@ -149,6 +149,7 @@ th {
   display: flex;
   height: 570px;
   overflow: auto;
+  background-color: #fffbfb;
 }
 .Table--left {
   width: 30%;
@@ -161,7 +162,7 @@ th {
 .Table--left--content {
   width: 100%;
   height: 70%;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   padding: 0 !important;
@@ -177,7 +178,7 @@ th {
 .Table--right-content {
   width: 90%;
   height: 24%;
-  background-color: #157448;
+  background-color: #1b8252;
   border: 1px solid white;
   border-collapse: collapse;
   margin-bottom: 15px !important;
@@ -232,4 +233,11 @@ th {
 }
 .widget-content-cus {
   margin-bottom: 10px;
+}
+.Note {
+  margin-top: 20px;
+  margin-right: 35px;
+  width: 100%;
+  height: 160px;
+  opacity: 0.8;
 }

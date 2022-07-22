@@ -2,7 +2,6 @@
 import { Line } from "react-chartjs-2";
 import React from "react";
 import { Col, Progress } from "reactstrap";
-
 const LineChartTranscript = ({ item }) => {
   let xLable = item.map((item) => item.hkten);
   let yScore = item.map((item) => item.trungbinhhk);

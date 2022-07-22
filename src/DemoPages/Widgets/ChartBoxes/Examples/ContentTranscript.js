@@ -1,7 +1,20 @@
+import { func } from "prop-types";
 import React from "react";
-import { Table, Col, Card, CardBody } from "reactstrap";
+import { Table, Col, Card, CardBody, CardTitle } from "reactstrap";
 import "./Transcript.css";
 const ContentTranscript = ({ item }) => {
+  let TotalCredits = item.map((item) =>
+    item.subjects.map((subject) => subject.soTinChi)
+  );
+  console.log("Tổng số tín chỉ", TotalCredits);
+  let arr = TotalCredits;
+  let contain = arr.map((ct) => +ct.reduce((a, b) => a + b, 0));
+  console.log("contain", contain);
+  console.log(
+    "contain-every",
+    contain.find((ft) => ft === contain[0])
+  );
+
   return (
     <>
       {item.map((item) => (
@@ -35,6 +48,78 @@ const ContentTranscript = ({ item }) => {
                               {item.trungbinhhk}
                             </div>
                           </div>
+                        </div>
+
+                        <div className="Note">
+                          <Card
+                            className="mb-3"
+                            body
+                            inverse
+                            color=""
+                            style={{
+                              height: "100%",
+                              borderRadius: "0 115px 115px 0",
+                            }}
+                          >
+                            <CardTitle className="text-focus">
+                              Ghi chú
+                            </CardTitle>
+
+                            {contain.every((any) => (
+                              <div className="text-focus">
+                                Số tín chỉ học kỳ đăng kí:{"\t"}
+                                {}
+                              </div>
+                            ))}
+
+                            <div
+                              className="text-focus"
+                              style={{ paddingTop: "3px" }}
+                            >
+                              Số tín chỉ học kỳ tích lũy:
+                            </div>
+                            <div>
+                              <div style={{ display: "flex" }}>
+                                <i
+                                  className="pe-7s-check"
+                                  style={{
+                                    fontSize: "25px",
+                                    color: "green",
+                                    marginTop: "8px",
+                                  }}
+                                ></i>
+                                <span
+                                  className="text-focus"
+                                  style={{
+                                    paddingTop: "10px",
+                                    paddingLeft: "10px",
+                                  }}
+                                >
+                                  Học phần đậu
+                                </span>
+                              </div>
+                              <div style={{ display: "flex" }}>
+                                <i
+                                  className="pe-7s-close-circle"
+                                  style={{
+                                    fontSize: "25px",
+                                    color: "red",
+                                    marginTop: "8px",
+                                  }}
+                                ></i>
+                                <span
+                                  className="text-focus"
+                                  style={{
+                                    paddingTop: "10px",
+                                    paddingLeft: "10px",
+                                  }}
+                                >
+                                  {" "}
+                                  Học phần rớt
+                                </span>
+                              </div>
+                            </div>
+                          </Card>
                         </div>
                       </div>
                     </div>{" "}
@@ -89,7 +174,16 @@ const ContentTranscript = ({ item }) => {
                                 >
                                   Điểm GK
                                 </th>
-                                <th style={{ width: "190px" }}> Điểm CK</th>
+                                <th
+                                  style={{
+                                    width: "190px",
+                                    borderRight: "1px solid white",
+                                  }}
+                                >
+                                  {" "}
+                                  Điểm CK
+                                </th>
+                                <th style={{ width: "190px" }}> Kết quả</th>
                               </thead>
                               <tbody>
                                 <td
@@ -123,9 +217,18 @@ const ContentTranscript = ({ item }) => {
                                   style={{
                                     width: "280px",
                                     borderTop: "1px solid white",
+                                    borderRight: "1px solid white",
                                   }}
                                 >
                                   {subject.diemCK}
+                                </td>
+                                <td
+                                  style={{
+                                    width: "280px",
+                                    borderTop: "1px solid white",
+                                  }}
+                                >
+                                  {""}
                                 </td>
                               </tbody>
                             </th>

@@ -1,6 +1,5 @@
 import React from "react";
 import ContentTranscript from "./ContentTranscript";
-import LineChartTranscript from "./LineChartTranscript";
 import "./Transcript.css";
 import { CardTitle, Card } from "reactstrap";
 import axios from "axios";
@@ -39,11 +38,11 @@ class Transcript extends React.Component {
               mhten: item.mhten,
               soTinChi: item.soTinChi,
               mhma: item.mhma,
-
               tongdiem: item.tongdiem,
               diemCK: item.diemCK,
               diemGK: item.diemGK,
               diemchu: item.diemchu,
+              datyn: item.datyn,
             },
           ],
         };
@@ -55,11 +54,11 @@ class Transcript extends React.Component {
           mhten: item.mhten,
           soTinChi: item.soTinChi,
           mhma: item.mhma,
-
           tongdiem: item.tongdiem,
           diemCK: item.diemCK,
           diemGK: item.diemGK,
           diemchu: item.diemchu,
+          datyn: item.datyn,
         });
         arr[existed] = hk;
       }

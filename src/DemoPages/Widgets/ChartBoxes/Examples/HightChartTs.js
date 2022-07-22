@@ -1,7 +1,6 @@
 import React from "react";
 import Highcharts from "highcharts";
 import LineChart from "highcharts-react-official";
-
 import { Col, Progress } from "reactstrap";
 const HighChartTs = ({ item }) => {
   let xLable = item.map((item) => item.hkten).reverse();

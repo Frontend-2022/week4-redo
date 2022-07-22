@@ -4,7 +4,6 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Transcript.css";
 import { Button, Alert } from "reactstrap";
-import { get } from "react-scroll/modules/mixins/scroller";
 
 const ContentHeader = ({ item }) => {
   const Countavg = item.map((item) => item.trungbinhhk);
@@ -14,13 +13,18 @@ const ContentHeader = ({ item }) => {
   let TotalCredits = item.map((item) =>
     item.subjects.map((subject) => subject.soTinChi)
   );
-  var arr = [];
+  let arr = [];
   for (let i = 0; i < TotalCredits.length; i++) {
-    var getTotalCredits = TotalCredits[i].reduce((a, b) => a + b, 0);
+    let getTotalCredits = TotalCredits[i].reduce((a, b) => a + b, 0);
     arr[i] = [getTotalCredits];
   }
-
-  console.log("arr =", arr);
+  let j = 0;
+  for (let i of arr) {
+    let k = Number(i);
+    // console.log("k ban đầu", k);
+    j = j + k;
+    // console.log("j", j);
+  }
 
   return (
     <>
@@ -37,7 +41,8 @@ const ContentHeader = ({ item }) => {
               className="textavg "
               style={{ fontSize: "15px", opacity: 0.8 }}
             >
-              Tín chỉ tích lũy : <span style={{ fontSize: "25px" }}>10</span>
+              {"Tín chỉ tích lũy : \t"}
+              <span style={{ fontSize: "25px" }}>{j}</span> {"tín chỉ"}
             </div>
             <div className="widget-description text-success"></div>
             <FontAwesomeIcon icon={faAngleUp} />
@@ -89,7 +94,6 @@ const ContentHeader = ({ item }) => {
       </div>
 
       <hr style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }} />
-      {/* warning */}
       <Alert color="warning" style={{ width: "98%", marginLeft: "1%" }}>
         <strong
           style={{
@@ -102,36 +106,6 @@ const ContentHeader = ({ item }) => {
         >
           <u>Chú ý:</u>
         </strong>
-
-        <div
-          style={{
-            width: "300px",
-            display: "flex",
-            marginLeft: "20px",
-            marginTop: "5px",
-          }}
-        >
-          <i
-            className="pe-7s-check"
-            style={{
-              fontSize: "25px",
-              color: "green",
-              marginLeft: "12px",
-              marginTop: "15px",
-            }}
-          ></i>
-          <p style={{ marginTop: "16px", marginLeft: "10px" }}> Học phần đậu</p>
-          <i
-            className="pe-7s-close-circle"
-            style={{
-              fontSize: "25px",
-              color: "red",
-              marginLeft: "12px",
-              marginTop: "15px",
-            }}
-          ></i>
-          <p style={{ marginTop: "16px", marginLeft: "10px" }}> Học phần rớt</p>
-        </div>
       </Alert>
     </>
   );
