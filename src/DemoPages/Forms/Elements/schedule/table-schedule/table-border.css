@@ -1,15 +1,14 @@
 .thead-style {
-    background-color: #d5d2d2;
+    background-color: #bebdbd;
     text-align: center;
 }
 
 .tbody-style {
     text-align: center;
-
 }
 
 .tr-style,
 .th-style,
 .td-style {
-    border-width: 3px;
+    border-width: 2px !important;
 }
