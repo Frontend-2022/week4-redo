@@ -94,19 +94,6 @@ const ContentHeader = ({ item }) => {
       </div>
 
       <hr style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }} />
-      <Alert color="warning" style={{ width: "98%", marginLeft: "1%" }}>
-        <strong
-          style={{
-            width: "130px",
-            display: "flex",
-            justifyContent: "space-between",
-            marginLeft: "20px",
-            marginTop: "5px",
-          }}
-        >
-          <u>Chú ý:</u>
-        </strong>
-      </Alert>
     </>
   );
 };

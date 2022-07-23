@@ -32,6 +32,8 @@ class Transcript extends React.Component {
           hkid: item.hkid,
           hkten: item.hkten,
           trungbinhhk: item.trungbinhhk,
+          totalCredits: item.soTinChi,
+          totalAccumulationCompleted: !item.datyn ? 0 : item.soTinChi,
           subjects: [
             {
               mhid: item.mhid,
@@ -49,6 +51,8 @@ class Transcript extends React.Component {
         arr.push(hk);
       } else {
         const hk = arr[existed];
+        hk.totalCredits += item.soTinChi;
+        hk.totalAccumulationCompleted += !item.datyn ? 0 : item.soTinChi;
         hk.subjects.push({
           mhid: item.mhid,
           mhten: item.mhten,
@@ -63,6 +67,7 @@ class Transcript extends React.Component {
         arr[existed] = hk;
       }
     }
+
     this.setState({
       TableTranscript: arr.sort((a, b) => b.hkid - a.hkid),
     });
@@ -74,7 +79,6 @@ class Transcript extends React.Component {
         <div className="contentMiddle">
           <ContentHeader item={this.state.TableTranscript} />
           <ContentTranscript item={this.state.TableTranscript} />
-          {/* <LineChartTranscript item={this.state.TableTranscript} /> */}
           <HighChartTs item={this.state.TableTranscript} />
           <Card className="mb-3 mb-3a" body inverse color="danger">
             <CardTitle

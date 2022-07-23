@@ -1,19 +1,10 @@
-import { func } from "prop-types";
 import React from "react";
 import { Table, Col, Card, CardBody, CardTitle } from "reactstrap";
 import "./Transcript.css";
 const ContentTranscript = ({ item }) => {
-  let TotalCredits = item.map((item) =>
-    item.subjects.map((subject) => subject.soTinChi)
-  );
-  console.log("Tổng số tín chỉ", TotalCredits);
-  let arr = TotalCredits;
-  let contain = arr.map((ct) => +ct.reduce((a, b) => a + b, 0));
-  console.log("contain", contain);
-  console.log(
-    "contain-every",
-    contain.find((ft) => ft === contain[0])
-  );
+  let arr = [];
+  arr = item.map((i) => i.totalAccumulationCompleted);
+  console.log(arr);
 
   return (
     <>
@@ -65,18 +56,17 @@ const ContentTranscript = ({ item }) => {
                               Ghi chú
                             </CardTitle>
 
-                            {contain.every((any) => (
-                              <div className="text-focus">
-                                Số tín chỉ học kỳ đăng kí:{"\t"}
-                                {}
-                              </div>
-                            ))}
+                            <div className="text-focus">
+                              Số tín chỉ học kỳ đăng kí:{`\t \t`}
+                              {item.totalCredits}
+                            </div>
 
                             <div
                               className="text-focus"
                               style={{ paddingTop: "3px" }}
                             >
-                              Số tín chỉ học kỳ tích lũy:
+                              Số tín chỉ học kỳ tích lũy:{"\t \t"}
+                              {item.totalAccumulationCompleted}
                             </div>
                             <div>
                               <div style={{ display: "flex" }}>
@@ -114,7 +104,6 @@ const ContentTranscript = ({ item }) => {
                                     paddingLeft: "10px",
                                   }}
                                 >
-                                  {" "}
                                   Học phần rớt
                                 </span>
                               </div>
@@ -122,7 +111,7 @@ const ContentTranscript = ({ item }) => {
                           </Card>
                         </div>
                       </div>
-                    </div>{" "}
+                    </div>
                     {/* Table left */}
                     <div className="Table--right">
                       {item.subjects.map((subject) => (
@@ -180,7 +169,6 @@ const ContentTranscript = ({ item }) => {
                                     borderRight: "1px solid white",
                                   }}
                                 >
-                                  {" "}
                                   Điểm CK
                                 </th>
                                 <th style={{ width: "190px" }}> Kết quả</th>
@@ -228,7 +216,7 @@ const ContentTranscript = ({ item }) => {
                                     borderTop: "1px solid white",
                                   }}
                                 >
-                                  {""}
+                                  {/* {item.totalAccumulationCompleted} */}
                                 </td>
                               </tbody>
                             </th>
@@ -249,4 +237,5 @@ const ContentTranscript = ({ item }) => {
     </>
   );
 };
+
 export default ContentTranscript;
