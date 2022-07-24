@@ -21,7 +21,7 @@ const options = {
                             enabled: false
                         },
     series: [{
-            name: '',
+            name: 'My dataset',
             data: [
                 {
                   name: 'Cars',
