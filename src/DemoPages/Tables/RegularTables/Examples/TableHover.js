@@ -74,20 +74,40 @@ const handleThanhtoan = (it) => {
                     <div className="Table--right1" style={{backgroundColor: 'transparent'}}>
                     {item.map((item) => (
                        <div className="Table--right1-content">
-                       <div className="item">
-                         <div style={{ width: "50%"}}>{item.hkten}
-                         <div style={{width: "auto", marginLeft:'60px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</div>
+                       <div className="item" >
+                         {/* <div style={{ width: "50%"}}>{item.hkten}                    </div>
+                         <div style={{ width: "auto", marginLeft:'60px'}}>{item.hkma}</div> */}
+                         <div style={{width: "520px", marginLeft:'50px', marginTop:'40px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} 
+                         <div style={{width: "auto"}}> {item.ngayTao}</div>
                          </div>
-                         <div style={{ height: "100%" }}>
+                         <div style={{ height: "100%", marginLeft:'100px' }}>
+                         <div
+                             className="itemDetail"
+                             style={{ margin: '20px 0 0 0', width: '150px'}}
+                           >
+                            {item.hkten}
+                            </div>
+                            <div
+                             className="itemDetail"  style={{width: '150px', margin: " 4px 0 0 0px" }}>
+                            Mã học kỳ: {item.hkma}
+                           </div> 
+                           <div
+                             className="itemDetail"  style={{width: '150px', margin: " 4px 0 0 0px" }}>
+                            Mã học phí: {item.lptma}
+                           </div> 
+                           </div>
+                         <div style={{ height: "100%"}}>
                            <div
                              className="itemDetail"
-                             style={{ marginTop: "20px" }}
+                             style={{ margin: " 20px 0 0 10px" }}
                            >
-                             Số TC: {item.soTinChi}
+                             Mã: {item.ptma}
                            </div>
-                           <div className="itemDetail">
-                             {`Mã MH:\t\t`}
-                             {item.mhma}
+                           <div className="itemDetail" style={{ margin: " 4px 0 0 10px" }} >
+                             ID: {item.ptid}
+                           </div>
+                           <div className="itemDetail" style={{ margin: " 4px 0 0 10px" }} >
+                             Loại học phí: {item.lptten}
                            </div>
                          </div>
                        </div>

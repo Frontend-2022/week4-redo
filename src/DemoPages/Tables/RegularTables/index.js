@@ -83,7 +83,7 @@ import Chart from './Chart.js';
                         <PageTitle
                         heading="Học phí"
                         icon="pe-7s-calculator icon-gradient bg-happy-itmeo" />
-                        <Col lg="6">
+        <Col >
         <div className="card2 mb-3 widget-chart">
           <div className="widget-chart-content">
             <div className="icon-wrapper rounded-circle">

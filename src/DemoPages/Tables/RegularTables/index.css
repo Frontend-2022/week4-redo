@@ -1,3 +1,31 @@
+.card2 {
+  background-image: linear-gradient(
+    to top,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
+  border-radius: 5px;
+  width: auto;
+}
+.mb-3 {
+  margin-top: 40px;
+}
+.average {
+  color: #fdfdfd;
+  font-weight: bold;
+  font-size: 4.5rem;
+  display: block;
+  line-height: 1;
+  margin: 1rem auto;
+}
+.textavg {
+  margin: 0.4rem 0 0;
+  display: block;
+  opacity: 0.6;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+}
 thead,
 tbody,
 tfoot,
@@ -22,7 +50,7 @@ th {
   padding-left: 15px;
 }
 .Tongno {
-  width: 245px;
+  width: 70%;
   height: 250px;
   border-radius: 50%;
   /* background-color: rgb(105 144 102); */
@@ -35,6 +63,8 @@ th {
   text-align: center;
   font-size: large;
   font-weight: 100px;
+  margin-top: 80px;
+  margin-left: 50px;
 }
 .Content-Table1 {
   display: flex;
@@ -51,7 +81,7 @@ th {
   border-width: 1px solid white;
 }
 .Table--left1--content {
-  width: 100%;
+  width: 80%;
   height: 70%; 
   /* display: flex; */
   justify-content: center;
@@ -102,7 +132,7 @@ th {
 .itemDetail {
   font-size: 12px;
   margin-left: 40px;
-  width: 179px;
+  width: 250px;
   height: 30px;
   background-image: linear-gradient(
     to top,
