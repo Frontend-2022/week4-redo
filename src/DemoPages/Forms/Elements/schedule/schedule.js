@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useEffect, useState} from "react";
+import { Table } from 'reactstrap';
+import "./table-border.css";
 import "./schedule.css";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 import {
@@ -9,24 +10,66 @@ import {
     CardTitle,
     FormGroup, Label, Input
 } from 'reactstrap';
-import TableBordered from "./table-schedule/table-border";
 import FormSchedule from "./index";
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
+import axios from 'axios';
 
 function Schedule() {
+
+    // state = {
+    //     schedule: []
+    // }
+    // async componentDidMount() {
+    //     // Get items from database
+    //     let res = await axios.get('http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay', {
+    //         headers: {
+    //             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1NzY4Nzc3MH0.w9lduwIS3ULlyKaPvaQisrI9_TMF2xj918JpGp_Wauo"
+    //         }
+    //     })
+
+    //     this.setState({ schedule: res && res.data && res.data.data ? res.data.data : [] })
+    // };
+    
+    const [eventDetails, setEventDetails] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
+    function getEvents() {
+        setIsLoading(true);
+        axios.get("http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay",
+            {
+                headers: {
+                    token:
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1Nzk1MTYyOX0.MC_ezgd5xPIax_h6c0xEhjrqppvQ88ZlxnNz4Z6MMsk",
+                },
+            }
+        )
+            .then(response => response.data)
+            .then((data) => {
+                setEventDetails(data)
+                setIsLoading(false);
+            });
+    }
+    useEffect(()=>{
+        getEvents();
+    },[])
+    
     const handleApply = (event, picker) => {
         picker.element.val(
-          picker.startDate.format('MM/DD/YYYY') +
+            picker.startDate.day(0).format('DD/MM/YYYY') +
             ' - ' +
-            picker.endDate.format('MM/DD/YYYY')
-        );
-      };
-      const handleCancel = (event, picker) => {
-        picker.element.val('');
-      };
-
+            picker.startDate.day(6).format('DD/MM/YYYY')
+            );
+        };
+        const handleCancel = (event, picker) => {
+            picker.element.val('');
+        };
+    
+        const [state1, setState1] = useState();
+        const handleCallback = (start, end) => {
+            setState1({ start, end });
+        };    
+        
     return (
         <div className="scheduleCSS">
             <FormSchedule />
@@ -37,7 +80,7 @@ function Schedule() {
 
             <div className="schedule__contents">
                 <div className="schedule__contents-name">
-                    <span>THỜI KHÓA BIỂU THEO TUẦN HỌC KỲ HÈ, 2021 - 2022 <br />TUẦN 3 ( 04/07/2022 - 10/07/2022 )</span>
+                    <span>THỜI KHÓA BIỂU THEO TUẦN HỌC KỲ HÈ, 2021 - 2022 <br />( <small>{state1?.start?.day(0).format('DD/MM/YYYY')}</small> - <small>{state1?.start?.day(6).format('DD/MM/YYYY')}</small> )</span>
                 </div>
 
                 <div className="schedule__header">
@@ -45,17 +88,18 @@ function Schedule() {
                     <div className="schedule__header-button">
                         <BsFillCaretLeftFill />
                     </div>
-                    
+
                     <div className="schedule__header-form">
                         <DateRangePicker
                             initialSettings={{
-                            autoUpdateInput: false,
-                            locale: {
-                                cancelLabel: 'Clear',
-                            },
+                                autoUpdateInput: false,
+                                locale: {
+                                    cancelLabel: 'Clear',
+                                },
                             }}
                             onApply={handleApply}
                             onCancel={handleCancel}
+                            onCallback={handleCallback}
                         >
                             <input type="text" className="form-control col-4" defaultValue="" />
                         </DateRangePicker>
@@ -68,7 +112,209 @@ function Schedule() {
                 <div className="schedule__contents-table">
                     <Card className="main-card mb-0">
                         <CardBody>
-                            <TableBordered />
+                            <Table className="mb-0" bordered>
+                                <thead className='thead-style'>
+                                    <tr className='tr-style'>
+                                        <th className='th-style'>Buổi</th>
+                                        <th className='th-style'>Tiết</th>
+                                        <th className='th-style'>
+                                            Chủ nhật <br />
+                                            <small>{state1?.start?.day(0).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 2 <br />
+                                            <small>{state1?.start?.day(1).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 3 <br />
+                                            <small>{state1?.start?.day(2).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 4 <br />
+                                            <small>{state1?.start?.day(3).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 5 <br />
+                                            <small>{state1?.start?.day(4).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 6 <br />
+                                            <small>{state1?.start?.day(5).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                        <th className='th-style'>
+                                            Thứ 7 <br />
+                                            <small>{state1?.start?.day(6).format('DD/MM/YYYY')}</small>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className='tbody-style'>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' rowspan="6" scope="row">Sáng</th>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 1 <br /> 06:40 - 07:30</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 2 <br /> 07:30 - 08:15</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'>
+                                            {isLoading ? <>loading</> : <>eventDetails.data</> }
+                                        </td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 3 <br /> 8:15 - 9:00</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 4 <br /> 9:00 - 9:45</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 5 <br />10:00 - 10:45</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 6 <br /> 10:45 - 11:30</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' rowspan="6" scope="row">Chiều</th>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 7 <br /> 13:00 - 13:50</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 8 <br /> 13:50 - 14:40</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 9 <br /> 14:45 - 15:35</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 10 <br /> 15:45 - 16:35</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 11 <br /> 16:35 - 17:25</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 12 <br /> 17:25 - 18:15</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' rowspan="4" scope="row">Tối</th>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 13 <br /> 18:15 - 19:05</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 14 <br /> 19:05 - 19:55</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 15 <br /> 19:55 - 20:45</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                    <tr>
+                                        <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 16 <br /> 20:45 - 21:35</th>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                        <td className='td-style'></td>
+                                    </tr>
+                                </tbody>
+                            </Table>
                         </CardBody>
                     </Card>
                 </div>
