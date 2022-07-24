@@ -1,32 +1,82 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
+import React from 'react';
+import Highcharts from 'highcharts';
+import LineChart from 'highcharts-react-official';
 
 const initialState = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
-  datasets: [
-    {
-      label: "My First dataset",
-      fill: false,
+  maintainAspectRatio: true,
+  title: {
+      text:''
+  },
+  chart: {
+      type: "line",
+  },
+  legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: 10,
+      y: 50,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor:
+          Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+      shadow: true
+  },
+  xAxis: {
+      categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: {
+        enabled: true
+      },
+      title: {
+          text: null
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+          text: '',
+      },
+      labels: {
+          overflow: 'justify'
+      }
+    },
+    plotOptions: {
+      line: {
+          dataLabels: {
+              enabled: true,
+          }
+      },
+      series: {
+        fill: false,
       lineTension: 0.1,
-      backgroundColor: "rgba(75,192,192,0.4)",
-      borderColor: "rgba(75,192,192,1)",
-      borderCapStyle: "round",
+      backgroundColor: '#ed0f51',
+      borderColor: '#ed0f51',
+      borderCapStyle: 'round',
       borderDash: [],
       borderDashOffset: 0.0,
-      borderJoinStyle: "miter",
-      pointBorderColor: "rgba(75,192,192,1)",
-      pointBackgroundColor: "#fff",
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(75,192,192,1)",
-      pointHoverBorderColor: "rgba(220,220,220,1)",
+      borderJoinStyle: 'miter',
+      pointBorderColor: '#ed0f51',
+      pointBackgroundColor: '#ffffff',
+      pointBorderWidth: 2,
+      pointHoverRadius: 10,
+      pointHoverBackgroundColor: '#ed0f51',
+      pointHoverBorderColor: '#ed0f51',
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40],
+      }
     },
+    series: [
+      {
+          name: 'My dataset',
+        data: [65, 59, 80, 81, 56, 55, 40]
+      },
   ],
-};
+    credits: {
+      enabled: false
+    }
+}
+
 
 // var createReactClass = require('create-react-class');
 
@@ -38,10 +88,10 @@ class Graph extends React.Component {
     var _this = this;
 
     setInterval(function() {
-      var oldDataSet = _this.state.datasets[0];
+      var oldDataSet = _this.state.series[0];
       var newData = [];
 
-      for (var x = 0; x < _this.state.labels.length; x++) {
+      for (var x = 0; x < _this.state.xAxis.categories.length; x++) {
         newData.push(Math.floor(Math.random() * 100));
       }
 
@@ -53,14 +103,14 @@ class Graph extends React.Component {
 
       var newState = {
         ...initialState,
-        datasets: [newDataSet],
+        series:[newDataSet]
       };
 
       _this.setState(newState);
     }, 5000);
   }
   render() {
-    return <Line data={this.state} />;
+    return <LineChart options={this.state} highcharts={Highcharts}/>;
   }
 }
 

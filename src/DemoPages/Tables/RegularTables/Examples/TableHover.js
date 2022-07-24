@@ -21,7 +21,7 @@ const handleThanhtoan = (it) => {
   return (
     <>
     <Col lg="6">
-
+    <Table responsive className="mb-0">
           <thead style={{ backgroundColor: "#DCDCDC" }}>
             <tr>
               <td colSpan="9" style={{ borderBottomColor: "white" }}>
@@ -49,10 +49,10 @@ const handleThanhtoan = (it) => {
           </tr>
         </tbody> */}
         <tbody>
-                  <div className="Content-Table">
-                    <div className="Table--left">
-                      <div className="Table--left--content">
-                        <div className="GPA_hk">
+                  <div className="Content-Table1">
+                    <div className="Table--left1">
+                      <div className="Table--left1--content">
+                        <div className="Tongno">
                           <div
                             style={{
                               verticalAlign: "middle",
@@ -71,112 +71,122 @@ const handleThanhtoan = (it) => {
                     </div>{" "}
                     {/* Table left */}
                     
-                    <div className="Table--right" style={{backgroundColor: 'transparent'}}>
+                    <div className="Table--right1" style={{backgroundColor: 'transparent'}}>
                     {item.map((item) => (
-                        <div className="Table--right-content">
-                          <div className="subject">
-                            <div style={{ width: "50%" }}>{item.hkten}</div>
-                            <div style={{ height: "100%" }}>
-                              <div
-                                className="subjectDetail"
-                                style={{ marginTop: "20px" }}
-                              >
-                                Mã: {item.hkma}
-                              </div>
-                              <div className="subjectDetail">
-                                {`Mã MH:\t\t`}
-                                {item.mhma}
-                              </div>
-                            </div>
-                          </div>
-                          <div className="item--content">
-                            <th
-                              style={{
-                                width: "100%",
-                                textAlign: "center",
-                                height: "50px",
-                                borderTop: "1px solid white",
-                                backgroundColor: " rgb(105 144 102)",
-                                borderRadius: "0 0 50px 50px",
-                              }}
-                            >
-                              <thead
-                                style={{
-                                  width: "190px",
-                                  borderBottom: "1px solid white",
-                                }}
-                              >
-                                <th
-                                  style={{
-                                    width: "190px",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  Điểm số
-                                </th>
-                                <th
-                                  style={{
-                                    width: "190px",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  Điểm chữ
-                                </th>
-                                <th
-                                  style={{
-                                    width: "190px",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  Điểm GK
-                                </th>
-                                <th style={{ width: "190px" }}> Điểm CK</th>
-                              </thead>
-                              <tbody>
-                                <td
-                                  style={{
-                                    width: "280px",
-                                    borderTop: "1px solid white",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  {item.tongdiem}
-                                </td>
-                                <td
-                                  style={{
-                                    width: "280px",
-                                    borderTop: "1px solid white",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  {item.diemchu}
-                                </td>
-                                <td
-                                  style={{
-                                    width: "280px",
-                                    borderTop: "1px solid white",
-                                    borderRight: "1px solid white",
-                                  }}
-                                >
-                                  {item.diemGK}
-                                </td>
-                                <td
-                                  style={{
-                                    width: "280px",
-                                    borderTop: "1px solid white",
-                                  }}
-                                >
+                       <div className="Table--right1-content">
+                       <div className="item">
+                         <div style={{ width: "50%"}}>{item.hkten}
+                         <div style={{width: "auto", marginLeft:'60px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</div>
+                         </div>
+                         <div style={{ height: "100%" }}>
+                           <div
+                             className="itemDetail"
+                             style={{ marginTop: "20px" }}
+                           >
+                             Số TC: {item.soTinChi}
+                           </div>
+                           <div className="itemDetail">
+                             {`Mã MH:\t\t`}
+                             {item.mhma}
+                           </div>
+                         </div>
+                       </div>
+                        {/* <div className="item--content">
+                         <th className="item--content--child">
+                           <thead
+                             style={{
+                               width: "190px",
+                               borderBottom: "1px solid white",
+                             }}
+                           >
+                             <th
+                               style={{
+                                 width: "190px",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               Điểm số
+                             </th>
+                             <th
+                               style={{
+                                 width: "190px",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               Điểm chữ
+                             </th>
+                             <th
+                               style={{
+                                 width: "190px",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               Điểm GK
+                             </th>
+                             <th
+                               style={{
+                                 width: "190px",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               Điểm CK
+                             </th>
+                             <th style={{ width: "190px" }}> Kết quả</th>
+                           </thead>
+                           <tbody>
+                             <td
+                               style={{
+                                 width: "280px",
+                                 borderTop: "1px solid white",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               {item.tongdiem}
+                             </td>
+                             <td
+                               style={{
+                                 width: "280px",
+                                 borderTop: "1px solid white",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               {item.diemchu}
+                             </td>
+                             <td
+                               style={{
+                                 width: "280px",
+                                 borderTop: "1px solid white",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               {item.diemGK}
+                             </td>
+                             <td
+                               style={{
+                                 width: "280px",
+                                 borderTop: "1px solid white",
+                                 borderRight: "1px solid white",
+                               }}
+                             >
+                               {item.diemCK}
+                             </td>
+                             <td
+                               style={{
+                                 width: "280px",
+                                 borderTop: "1px solid white",
+                               }}
+                             >
                                   {item.diemCK}
                                 </td>
                               </tbody>
                             </th>
-                          </div>
+                          </div> */}
                         </div>
                       ))}
                     </div>
                   </div>
                 </tbody>
-      
+                </Table>
 
         </Col>
         </>
