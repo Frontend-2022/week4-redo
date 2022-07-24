@@ -34,6 +34,7 @@ class Transcript extends React.Component {
           trungbinhhk: item.trungbinhhk,
           totalCredits: item.soTinChi,
           totalAccumulationCompleted: !item.datyn ? 0 : item.soTinChi,
+          result: !item.datyn ? "pe-7s-close-circle" : "pe-7s-check",
           subjects: [
             {
               mhid: item.mhid,

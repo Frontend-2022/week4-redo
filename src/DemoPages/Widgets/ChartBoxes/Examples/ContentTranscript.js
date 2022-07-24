@@ -4,7 +4,6 @@ import "./Transcript.css";
 const ContentTranscript = ({ item }) => {
   let arr = [];
   arr = item.map((i) => i.totalAccumulationCompleted);
-  console.log(arr);
 
   return (
     <>
@@ -216,6 +215,14 @@ const ContentTranscript = ({ item }) => {
                                     borderTop: "1px solid white",
                                   }}
                                 >
+                                  <i
+                                    className={item.result}
+                                    style={{
+                                      fontSize: "22px",
+                                      color: "#ffffff",
+                                      fontWeight: "bold",
+                                    }}
+                                  ></i>
                                   {/* {item.totalAccumulationCompleted} */}
                                 </td>
                               </tbody>
