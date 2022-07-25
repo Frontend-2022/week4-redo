@@ -36,18 +36,18 @@ import Chart from './Chart.js';
   render() {
     const checkFilter = (option) => {
         // No need to check for searched value
-          if (option === 'all')
-            return this.state.HocPhi;
-          else if (option === 'Học kỳ 2, 2021 - 2022')
-            return this.state.HocPhi.filter((item) => item["hkma"] === '212');
-        else if (option === 'Học kỳ 1, 2021 - 2022')
-            return this.state.HocPhi.filter((item) => item["hkma"] === '211');
-        else if (option === 'Học kỳ hè, 2020 - 2021')
-            return this.state.HocPhi.filter((item) => item["hkma"] === '203');
-        else if (option === 'Học kỳ 2, 2020 - 2021')
-            return this.state.HocPhi.filter((item) => item["hkma"] === '202');
+          if (option[0] === 'all')
+            return this.setState({HocPhi:this.state.HocPhi});
+          else if (option[0] === 'Học kỳ 2, 2021 - 2022')
+            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '212')});
+        else if (option[0] === 'Học kỳ 1, 2021 - 2022')
+            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '211')});
+        else if (option[0] === 'Học kỳ hè, 2020 - 2021')
+            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '203')});
+        else if (option[0] === 'Học kỳ 2, 2020 - 2021')
+            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '202')});
         else
-            return this.state.HocPhi.filter((item) => item["hkma"] === '201');
+            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '201')});
     }
     const Tongconlai = (temp) => {
         for( let i of this.state.HocPhi){
@@ -67,7 +67,7 @@ import Chart from './Chart.js';
         return uniques;
     }
     const storeOption = (id) => {
-        this.setState({filter: id? id : []})
+       
     }
     console.log(this.state.filter)
     return (
