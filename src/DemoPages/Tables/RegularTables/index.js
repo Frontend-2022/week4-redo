@@ -20,7 +20,7 @@ import Chart from './Chart.js';
     
     state ={
         HocPhi:[],
-        filter:[]
+        filter: []
     }
     async componentDidMount() {
     // Get items from database
@@ -31,28 +31,20 @@ import Chart from './Chart.js';
     })
 
     this.setState({HocPhi: res.data && res.data.data ? res.data.data :[]})
-    //   .then(response => {
-    //     this.setState({post : (response.data.data ? response.data.data : [])});
-    //     console.log(post)
-    //   })
-    //   .catch((error) => {
-    //     console.log(error)
-    //   }
-    //   );
-    // eslint-disable-next-line
   };
+  
   render() {
     const checkFilter = (option) => {
         // No need to check for searched value
-          if (option[0] === 'all')
+          if (option === 'all')
             return this.state.HocPhi;
-          else if (option[0] === 'Học kỳ 2, 2021 - 2022')
+          else if (option === 'Học kỳ 2, 2021 - 2022')
             return this.state.HocPhi.filter((item) => item["hkma"] === '212');
-        else if (option[0] === 'Học kỳ 1, 2021 - 2022')
+        else if (option === 'Học kỳ 1, 2021 - 2022')
             return this.state.HocPhi.filter((item) => item["hkma"] === '211');
-        else if (option[0] === 'Học kỳ hè, 2020 - 2021')
+        else if (option === 'Học kỳ hè, 2020 - 2021')
             return this.state.HocPhi.filter((item) => item["hkma"] === '203');
-        else if (option[0] === 'Học kỳ 2, 2020 - 2021')
+        else if (option === 'Học kỳ 2, 2020 - 2021')
             return this.state.HocPhi.filter((item) => item["hkma"] === '202');
         else
             return this.state.HocPhi.filter((item) => item["hkma"] === '201');
@@ -74,6 +66,10 @@ import Chart from './Chart.js';
         }
         return uniques;
     }
+    const storeOption = (id) => {
+        this.setState({filter: id? id : []})
+    }
+    console.log(this.state.filter)
     return (
         <Fragment>
             <TransitionGroup>
@@ -101,11 +97,11 @@ import Chart from './Chart.js';
                         <div>
                         <FormGroup style={{display:'flex'}}>
                             <Label for="exampleSelect" style={{width: 'auto', padding: '6px 18px 0 0', fontWeight: 'bold', fontSize:'1rem'}}>Học kỳ</Label>
-                                <Input type="select" name="select" id="exampleSelect"  style={{width: '94%'}} defaultValue={0}>
+                                <Input type="select" name="select" id="exampleSelect"  style={{width: '94%'}} defaultValue={0} onChange={checkFilter}>
                                     <option value={0}>Tất cả</option>
                                     {toFindDuplicates(this.state.HocPhi).map((item) => (
               <>
-                                <option value={item.hkten}>{item.hkten}</option>
+                                <option  value={item.hkten}>{item.hkten}</option>
               </>
             ))}
                                 </Input>
