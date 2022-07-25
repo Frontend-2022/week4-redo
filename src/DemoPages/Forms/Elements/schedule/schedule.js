@@ -32,27 +32,35 @@ function Schedule() {
     //     this.setState({ schedule: res && res.data && res.data.data ? res.data.data : [] })
     // };
     
-    const [eventDetails, setEventDetails] = useState([])
-    const [isLoading, setIsLoading] = useState(false);
-    function getEvents() {
-        setIsLoading(true);
-        axios.get("http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay",
+    const [posts, setPosts] = useState([])
+    useEffect(()=>{
+        axios.get(
+            "http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay?ngay=2021-11-20",
             {
                 headers: {
-                    token:
+                token:
                     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1Nzk1MTYyOX0.MC_ezgd5xPIax_h6c0xEhjrqppvQ88ZlxnNz4Z6MMsk",
                 },
             }
         )
-            .then(response => response.data)
-            .then((data) => {
-                setEventDetails(data)
-                setIsLoading(false);
-            });
-    }
-    useEffect(()=>{
-        getEvents();
+            .then(res => {
+                console.log(res.data)
+                setPosts(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
     },[])
+
+    // let arrPost = posts.map((post)=> post.data);
+
+    const InforPosts = (temp) => {
+        var namePost = [];
+        for(var i = 0, l = temp.length; i < l; i++) {
+            namePost.push(temp[i]);
+        }
+        return namePost;
+    }
     
     const handleApply = (event, picker) => {
         picker.element.val(
@@ -71,16 +79,23 @@ function Schedule() {
         };    
         
     return (
+        
         <div className="scheduleCSS">
             <FormSchedule />
 
             <div className="schedule__student">
                 <span>Nguyễn Đức Tiến - MSSV: 1812020001 - Lớp : 12ĐHC - Ngành : THIẾT KẾ ĐỒ HỌA</span>
+                <br/> 
+                <>
+                    {InforPosts(posts).map((post)=>(
+                        <div>{post.data}</div>
+                    ))}
+                </>
             </div>
 
             <div className="schedule__contents">
                 <div className="schedule__contents-name">
-                    <span>THỜI KHÓA BIỂU THEO TUẦN HỌC KỲ HÈ, 2021 - 2022 <br />( <small>{state1?.start?.day(0).format('DD/MM/YYYY')}</small> - <small>{state1?.start?.day(6).format('DD/MM/YYYY')}</small> )</span>
+                    <span>THỜI KHÓA BIỂU THEO TUẦN HỌC KỲ HÈ, 2021 - 2022 <br />(<small>{state1?.start?.day(0).format('DD/MM/YYYY')}</small> - <small>{state1?.start?.day(6).format('DD/MM/YYYY')}</small>)</span>
                 </div>
 
                 <div className="schedule__header">
@@ -162,9 +177,7 @@ function Schedule() {
                                     <tr>
                                         <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 2 <br /> 07:30 - 08:15</th>
                                         <td className='td-style'></td>
-                                        <td className='td-style'>
-                                            {isLoading ? <>loading</> : <>eventDetails.data</> }
-                                        </td>
+                                        <td className='td-style'></td>
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
@@ -220,7 +233,9 @@ function Schedule() {
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
-                                        <td className='td-style'></td>
+                                        <td className='td-style'>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 8 <br /> 13:50 - 14:40</th>
@@ -334,7 +349,8 @@ function Schedule() {
                 </span>
             </Alert>
 
-        </div>
+        </div>  
+        
     )
 }
 
