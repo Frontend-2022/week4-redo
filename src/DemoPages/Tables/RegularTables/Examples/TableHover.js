@@ -71,13 +71,13 @@ const handleThanhtoan = (it) => {
                        <div className="item" >
                          {/* <div style={{ width: "50%"}}>{item.hkten}                    </div>
                          <div style={{ width: "auto", marginLeft:'60px'}}>{item.hkma}</div> */}
-                         <div style={{width: "550px", marginLeft:'50px', marginTop:'40px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} 
+                         <div style={{width: "550px", marginLeft:'50px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} 
                          <div style={{width: "auto"}}> {item.ngayTao}</div>
                          </div>
                          <div style={{ height: "100%", marginLeft:'100px' }}>
                          <div
                              className="itemDetail"
-                             style={{ margin: '20px 0 0 0', width: '150px'}}
+                             style={{ margin: '10px 0 0 0', width: '150px'}}
                            >
                             {item.hkten}
                             </div>
@@ -93,7 +93,7 @@ const handleThanhtoan = (it) => {
                          <div style={{ height: "100%"}}>
                            <div
                              className="itemDetail"
-                             style={{ margin: " 20px 0 0 10px" }}
+                             style={{ margin: " 10px 0 0 10px" }}
                            >
                              Mã: {item.ptma}
                            </div>
