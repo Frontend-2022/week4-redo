@@ -22,38 +22,6 @@ import Option from './Option.js';
   };
   
   render() {
-    const checkFilter = (option) => {
-        // No need to check for searched value
-          if (option[0] === 'all')
-            return this.setState({HocPhi:this.state.HocPhi});
-          else if (option[0] === 'Học kỳ 2, 2021 - 2022')
-            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '212')});
-        else if (option[0] === 'Học kỳ 1, 2021 - 2022')
-            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '211')});
-        else if (option[0] === 'Học kỳ hè, 2020 - 2021')
-            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '203')});
-        else if (option[0] === 'Học kỳ 2, 2020 - 2021')
-            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '202')});
-        else
-            return this.setState({HocPhi:this.state.HocPhi.filter((item) => item["hkma"] === '201')});
-    }
-    const Tongconlai = (temp) => {
-        for( let i of this.state.HocPhi){
-                temp += i.soTien;
-        }
-        return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-    const toFindDuplicates = (temp) => {
-        var uniques = [];
-        var itemsFound = {};
-        for(var i = 0, l = temp.length; i < l; i++) {
-            var stringified = JSON.stringify(temp[i]['hkma']);
-            if(itemsFound[stringified]) { continue; }
-            uniques.push(temp[i]);
-            itemsFound[stringified] = true;
-        }
-        return uniques;
-    }
     return (
         <Fragment>
             <TransitionGroup>

@@ -82,15 +82,8 @@ function Chart ({item}) {
     return (
         <div className="card mb-3 widget-chart" style={{padding:'1rem 0 0 0',boxShadow:'none'}}>
                                                 <div className="widget-chart-content">
-                                                    <div className="icon-wrapper rounded-circle">
-                                                        <div className="icon-wrapper-bg bg-primary"/>
-                                                        <i className="lnr-cog text-primary"/>
-                                                    </div>
                                                     <div className="widget-numbers">
                                                         {Tongconlai(0)}
-                                                    </div>
-                                                    <div className="widget-subheading">
-                                                        Học phí
                                                     </div>
                                                 </div>
                         

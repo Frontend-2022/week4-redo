@@ -50,7 +50,7 @@ th {
   padding-left: 15px;
 }
 .Tongno {
-  width: 80%;
+  width: 245px;
   height: 250px;
   border-radius: 50%;
   /* background-color: rgb(105 144 102); */
@@ -68,7 +68,7 @@ th {
 }
 .Content-Table1 {
   display: flex;
-  height: 570px;
+  height: auto;
   overflow: auto;
   background-color: #fffbfb;
 }
@@ -106,7 +106,7 @@ th {
   border-radius: 5px;
 }
 .Table--right1-content .item {
-  height: 69%;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
