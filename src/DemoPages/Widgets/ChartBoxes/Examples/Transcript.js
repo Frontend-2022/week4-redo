@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ContentTranscript from "./ContentTranscript";
 import "./Transcript.css";
-import { CardTitle, Card } from "reactstrap";
+import { CardTitle, Card, Button } from "reactstrap";
 import axios from "axios";
 import ContentHeader from "./ContentHeader";
 import HighChartTs from "./HightChartTs";
@@ -45,6 +45,7 @@ class Transcript extends React.Component {
               diemCK: item.diemCK,
               diemGK: item.diemGK,
               diemchu: item.diemchu,
+              diem4: item.diem4,
               datyn: item.datyn,
             },
           ],
@@ -63,6 +64,7 @@ class Transcript extends React.Component {
           diemCK: item.diemCK,
           diemGK: item.diemGK,
           diemchu: item.diemchu,
+          diem4: item.diem4,
           datyn: item.datyn,
         });
         arr[existed] = hk;
@@ -77,9 +79,9 @@ class Transcript extends React.Component {
   render() {
     return (
       <>
+        <ContentHeader items={this.state.TableTranscript} id="show" />
         <div className="contentMiddle">
-          <ContentHeader item={this.state.TableTranscript} />
-          <ContentTranscript item={this.state.TableTranscript} />
+          <ContentTranscript items={this.state.TableTranscript} />
           <HighChartTs item={this.state.TableTranscript} />
           <Card className="mb-3 mb-3a" body inverse color="danger">
             <CardTitle

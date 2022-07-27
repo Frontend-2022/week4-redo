@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col } from "reactstrap";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Transcript.css";
-import { Button, Alert } from "reactstrap";
-
-const ContentHeader = ({ item }) => {
-  const Countavg = item.map((item) => item.trungbinhhk);
+import { Button } from "reactstrap";
+const ContentHeader = ({ items }) => {
+  const Countavg = items.map((item) => item.trungbinhhk);
   const average = Countavg.reduce((a, b) => a + b, 0) / Countavg.length;
   const roundedAverage = average.toFixed(2);
 
-  let TotalCredits = item.map((item) =>
+  let TotalCredits = items.map((item) =>
     item.subjects.map((subject) => subject.soTinChi)
   );
   let arr = [];
@@ -21,9 +20,7 @@ const ContentHeader = ({ item }) => {
   let j = 0;
   for (let i of arr) {
     let k = Number(i);
-    // console.log("k ban đầu", k);
     j = j + k;
-    // console.log("j", j);
   }
 
   return (
@@ -50,17 +47,14 @@ const ContentHeader = ({ item }) => {
           <div className="widget-chart-wrapper chart-wrapper-relative"></div>
         </div>
       </Col>
-
-      <div className="Sort">
+      {/* <div className="Sort">
         <div className="Sort-1">
           <label style={{ fontSize: "14px" }}>Năm học - Học kỳ</label>
 
-          <select className="slect" defaultValue={0}>
-            <option value={0}>Tất cả</option>
+          <select className="slect">
+            <option value="Tat ca">Tất cả</option>
             {item.map((item) => (
-              <>
-                <option value={item.hkten}>{item.hkten.toLowerCase()}</option>
-              </>
+              <option value="hi">{item.hkten.toLowerCase()}</option>
             ))}
           </select>
         </div>
@@ -93,7 +87,7 @@ const ContentHeader = ({ item }) => {
         </Button>
       </div>
 
-      <hr style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }} />
+      <hr style={{ border: 0, borderTop: "1px solid #eee", width: "90%" }} /> */}
     </>
   );
 };
