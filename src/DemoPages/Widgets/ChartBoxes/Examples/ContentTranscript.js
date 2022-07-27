@@ -299,7 +299,7 @@ const ContentTranscript = ({ items }) => {
                                       className={item.result}
                                       style={{
                                         fontSize: "22px",
-                                        color: "#ffffff",
+                                        color: "#a07f7f",
                                         fontWeight: "bold",
                                       }}
                                     ></i>

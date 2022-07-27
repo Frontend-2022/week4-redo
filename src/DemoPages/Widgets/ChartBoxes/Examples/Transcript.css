@@ -6,10 +6,17 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .card2 {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to top,
     #0ba360 0%,
     #3cba92 100%
+  ) !important; */
+  background-image: linear-gradient(
+    to right,
+    #f78ca0 0%,
+    #f9748f 19%,
+    #fd868c 60%,
+    #fe9a8b 100%
   ) !important;
   border-radius: 5px;
 }
@@ -54,7 +61,7 @@
 .Sort-1 {
   width: 370px;
   cursor: pointer;
-  color: #1b8252;
+  color: #5b3f0d;
 }
 label {
   display: inline-block;
@@ -73,7 +80,7 @@ label {
   padding: 6px 4px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #1b8252;
+  color: #5b3f0d;
   background-color: transparent;
   background-image: none;
   border: 1px solid #ccc;
@@ -136,21 +143,26 @@ th {
   width: 245px;
   height: 250px;
   border-radius: 50%;
-  /* background-color: rgb(105 144 102); */
+  box-shadow: 0 0.46875rem 2.1875rem rgb(8 10 37 / 3%),
+    0 0.9375rem 1.40625rem rgb(8 10 37 / 3%),
+    0 0.25rem 0.53125rem rgb(8 10 37 / 5%),
+    0 0.125rem 0.1875rem rgb(8 10 37 / 3%);
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
   ) !important;
-  color: white;
+
+  color: #ffff;
   text-align: center;
   font-size: large;
   font-weight: 100px;
 }
 .Content-Table {
   display: flex;
-  height: 570px;
-  overflow: auto;
+  height: auto;
   background-color: #fffbfb;
 }
 .Table--left {
@@ -163,7 +175,7 @@ th {
 }
 .Table--left--content {
   width: 100%;
-  height: 70%;
+  height: 100%;
   /* display: flex; */
   justify-content: center;
   align-items: center;
@@ -171,16 +183,23 @@ th {
 }
 .Table--right {
   width: 75%;
-  height: 97%;
-  overflow: auto;
+  height: 100%;
+  /* overflow: auto; */
   padding: 0 !important;
   background-color: #d5e8d4;
-  color: rgb(255, 255, 255);
+  color: #735858;
 }
 .Table--right-content {
   width: 90%;
   height: 24%;
-  background-color: #1b8252;
+  /* background-color: #1b8252; */
+  background-image: linear-gradient(
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
+  ) !important;
   border: 1px solid white;
   border-collapse: collapse;
   margin-bottom: 15px !important;
@@ -206,9 +225,11 @@ th {
   border-top: 1px solid white;
   border-radius: 0 0 5px 5px;
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
   ) !important;
 }
 .subjectDetail {
@@ -216,12 +237,15 @@ th {
   margin-left: 40px;
   width: 179px;
   height: 30px;
+
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #efdac8 0%,
+    #efdac8 0%,
+    #efdac8 0%,
+    #efdac8 0%
   ) !important;
-  color: white;
+  color: #a07f7f;
   font-weight: bolder;
   border-radius: 20px;
   padding-left: 8px;
