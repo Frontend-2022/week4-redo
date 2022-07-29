@@ -15,13 +15,6 @@ const ContentTranscript = ({ items }) => {
     setTerms(items.filter((item) => +item.hkid === +e.target.value));
   };
 
-  useEffect(() => setScore(items.subjects));
-  const [score, setScore] = useState([]);
-  const changeScoreType = (i) => {
-    console.log(+i.target.value);
-    setScore(items.filter((item) => +item.subjects.diem4 == +i.target.value));
-  };
-
   return (
     <>
       <div className="Sort">
