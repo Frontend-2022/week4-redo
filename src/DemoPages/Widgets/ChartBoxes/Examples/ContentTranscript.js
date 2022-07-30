@@ -8,7 +8,7 @@ const ContentTranscript = ({ items }) => {
   const [terms, setTerms] = useState([]);
   const changeSelect = (e) => {
     console.log(e.target.value);
-    if (!+e.target.value) {
+    if (+e.target.value === 0) {
       setTerms(items);
       return;
     }
@@ -24,18 +24,11 @@ const ContentTranscript = ({ items }) => {
           <select className="slect" onChange={changeSelect}>
             <option value={0}>Tất cả</option>
             {items.map((item) => (
-              <option value={+item.hkid}>{item.hkten.toLowerCase()}</option>
+              <option value={+item.hkid}>{item.hkten}</option>
             ))}
           </select>
         </div>
-        {/* <div className="Sort-1">
-          <label style={{ fontSize: "14px" }}>Hệ điểm</label>
-          <select className="slect" onChange={changeScoreType}>
-            {items.map((item) => (
-              <option value={item.hkid}>{item.hkid}</option>
-            ))}
-          </select>
-        </div> */}
+
         <Button
           outline
           className="mb-2 me-2 btn-transition btn-primary "

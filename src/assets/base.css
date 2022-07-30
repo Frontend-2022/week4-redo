@@ -12007,10 +12007,11 @@ button,
 }
 .app-page-title .page-title-heading {
   font-size: 1.7rem;
-  font-weight: 700;
+  font-weight: 400;
   display: flex;
   align-content: center;
   align-items: center;
+  color: #9197a3;
 }
 .app-page-title .page-title-subheading {
   padding: 3px 0 0;

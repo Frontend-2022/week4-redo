@@ -8,6 +8,7 @@ import WidgetsChartBoxes from "./ChartBoxes/";
 // Layout
 import AppHeader from "../../Layout/AppHeader/";
 import AppSidebar from "../../Layout/AppSidebar/";
+import Register from "./Register";
 
 const Widgets = ({ match }) => (
   <Fragment>
@@ -22,8 +23,8 @@ const Widgets = ({ match }) => (
             path={`${match.url}/dashboard-boxes`}
             component={WidgetsChartBoxes}
           />
+          <Route path={`${match.url}/Register`} component={Register} />
         </div>
-        {/* <AppFooter/> */}
       </div>
     </div>
   </Fragment>
