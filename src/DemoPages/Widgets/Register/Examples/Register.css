@@ -1,0 +1,32 @@
+.register-header {
+  margin: 30px auto;
+  width: 95%;
+
+  border-radius: 5px;
+  align-items: center;
+}
+.choose-term {
+  width: 150px;
+  height: 40px;
+}
+.slec {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+.typeOfRegister {
+  width: 20px;
+  height: 40px;
+}
+.table-register {
+  border: 1px solid #e9ecef;
+  border-collapse: collapse;
+  background-color: #c3ccd5;
+  border-radius: 5px;
+}
+.check-result {
+  margin-top: 20px;
+  float: right;
+}
