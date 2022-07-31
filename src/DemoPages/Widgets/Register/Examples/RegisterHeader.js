@@ -1,8 +1,9 @@
 import React from "react";
-import "./Register.css";
-import { Nav, NavItem } from "reactstrap";
+import "./RegisterHeader.css";
+import { Nav, NavItem, Input} from "reactstrap";
 
 const RegisterHeader = () => {
+  
   return (
     <form className="register-header">
       <Nav justified>
@@ -32,20 +33,17 @@ const RegisterHeader = () => {
         </NavItem>
         <NavItem>
           <div>Trong kế hoạch</div>
-          <input type={"radio"} className="typeOfRegister"></input>
+          <Input type={"checkbox"} className="typeOfRegister" ></Input>
         </NavItem>
         <NavItem>
           <div>Học vượt</div>
-          <input type={"radio"} className="typeOfRegister"></input>
+          <Input type={"checkbox"} className="typeOfRegister"></Input>
         </NavItem>
         <NavItem>
           <div>Học lại</div>
-          <input type={"radio"} className="typeOfRegister"></input>
+          <Input type={"checkbox"} className="typeOfRegister"></Input>
         </NavItem>
-        <NavItem>
-          <div>Học cải thiện</div>
-          <input type={"radio"} className="typeOfRegister"></input>
-        </NavItem>
+       
       </Nav>
       <div className="divider" />
     </form>
