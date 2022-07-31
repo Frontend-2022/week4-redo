@@ -1,0 +1,35 @@
+.register-header {
+  margin: 30px auto;
+  width: 95%;
+
+  border-radius: 5px;
+  align-items: center;
+}
+.choose-term {
+  width: 150px;
+  height: 40px;
+}
+.slec {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+.typeOfRegister {
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 50%;
+}
+.form-check-input:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+.form-check-input[type=checkbox]:indeterminate {
+  background-color: #545cd8;
+  border-color: #545cd8;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
+}
