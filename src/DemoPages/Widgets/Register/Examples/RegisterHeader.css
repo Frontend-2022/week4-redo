@@ -1,8 +1,27 @@
+.register-header {
+  margin: 30px auto;
+  width: 95%;
+
+  border-radius: 5px;
+  align-items: center;
+}
+.choose-term {
+  width: 150px;
+  height: 40px;
+}
+.slec {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 7px;
+}
 .typeOfRegister {
   margin-top: 10px;
   width: 20px;
   height: 20px;
 }
+
 .form-check-input[type=checkbox] {
   border-radius: 50%;
 }
