@@ -6,8 +6,8 @@ const RegisterHeader = () => {
   
   return (
     <form className="register-header">
-      <Nav justified style={{flexWrap:'nowrap'}}  >
-         <NavItem style={{marginLeft:'27vw'}}  > {/* style={{marginLeft:'390px'}} */}
+      <Nav justified style={{flexWrap:'nowrap', marginLeft:'27vw'}}  >
+         <NavItem style={{flexGrow:'0'}}  > {/* style={{marginLeft:'390px'}} */}
           <div className="choose-term" >
             <div>Chọn học kì</div>
             <select className="slec">
@@ -19,7 +19,7 @@ const RegisterHeader = () => {
             </select>
           </div>
         </NavItem>
-        <NavItem style={{marginRight:'26vw '}} > {/* style={{marginLeft:'-470px'}}*/}
+        <NavItem style={{marginRight:'50vw ',flexGrow:'0'}} > {/* style={{marginLeft:'-470px'}}*/}
           <div className="choose-term">
             <div>Chọn đợt đăng kí</div>
             <select className="slec">
