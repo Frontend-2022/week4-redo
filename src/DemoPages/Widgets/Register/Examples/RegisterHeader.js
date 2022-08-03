@@ -1,14 +1,14 @@
 import React from "react";
 import "./RegisterHeader.css";
-import { Nav, NavItem, Input} from "reactstrap";
+import { Nav, NavItem} from "reactstrap";
 
 const RegisterHeader = () => {
   
   return (
     <form className="register-header">
-      <Nav justified >
-         <NavItem style={{position: 'center'}} > {/* style={{marginLeft:'390px'}} */}
-          <div className="choose-term" style={{marginLeft:'455px'}}>
+      <Nav justified  >
+         <NavItem style={{marginLeft:'27vw'}}  > {/* style={{marginLeft:'390px'}} */}
+          <div className="choose-term" >
             <div>Chọn học kì</div>
             <select className="slec">
               <option>Học kì mới</option>
@@ -19,7 +19,7 @@ const RegisterHeader = () => {
             </select>
           </div>
         </NavItem>
-        <NavItem style={{marginLeft:'280px'}} > {/* style={{marginLeft:'-470px'}}*/}
+        <NavItem style={{marginRight:'26vw '}} > {/* style={{marginLeft:'-470px'}}*/}
           <div className="choose-term">
             <div>Chọn đợt đăng kí</div>
             <select className="slec">

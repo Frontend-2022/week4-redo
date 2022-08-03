@@ -67,8 +67,8 @@ th {
   text-align: center;
   font-size: large;
   font-weight: 100px;
-  margin-top: auto;
-  margin-left: 30px;
+  margin: auto;
+  
 }
 .Content-Table1 {
   display: flex;
@@ -89,7 +89,6 @@ th {
   height: 70%; 
   /* display: flex; */
   justify-content: center;
-  align-items: center;
   padding: 0 !important;
 }
 .Table--right1 {
