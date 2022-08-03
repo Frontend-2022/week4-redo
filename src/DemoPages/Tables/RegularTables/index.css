@@ -1,8 +1,10 @@
-.card2 {
+.card3 {
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #f78ca0 0%,
+    #f9748f 19%,
+    #fd868c 60%,
+    #fe9a8b 100%
   ) !important;
   border-radius: 5px;
   width: auto;
@@ -55,15 +57,17 @@ th {
   border-radius: 50%;
   /* background-color: rgb(105 144 102); */
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
   ) !important;
   color: white;
   text-align: center;
   font-size: large;
   font-weight: 100px;
-  margin-top: 80px;
+  margin-top: auto;
   margin-left: 30px;
 }
 .Content-Table1 {
@@ -94,12 +98,18 @@ th {
   overflow: auto;
   padding: 0 !important;
   background-color: #d5e8d4;
-  color: rgb(255, 255, 255);
+  color: #735858;
 }
 .Table--right1-content {
   width: 90%;
   height: 24%;
-  background-color: #1b8252;
+  background-image:linear-gradient(
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
+  ) !important;
   border: 1px solid white;
   border-collapse: collapse;
   margin-bottom: 15px !important;
@@ -124,9 +134,11 @@ th {
   border-top: 1px solid white;
   border-radius: 0 0 5px 5px;
   background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
+    to right,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%,
+    #ebbc7e 19%
   ) !important;
 }
 .itemDetail {
@@ -134,12 +146,8 @@ th {
   margin-left: 40px;
   width: 250px;
   height: 30px;
-  background-image: linear-gradient(
-    to top,
-    #0ba360 0%,
-    #3cba92 100%
-  ) !important;
-  color: white;
+  background-image:  linear-gradient( to right, #efdac8 0%, #efdac8 0%, #efdac8 0%, #efdac8 0% ) !important;
+  color: #a07f7f;
   font-weight: bolder;
   border-radius: 20px;
   padding-left: 8px;

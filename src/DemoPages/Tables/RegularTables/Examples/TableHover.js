@@ -8,16 +8,9 @@ const TableHover = ({item}) => {
       }
       return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
-  const handleHocphi = (it) => {
-    if (it.toString().includes("-")){
-        return '' ;}
-    else return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;
-}
-const handleThanhtoan = (it) => {
-    if (it.toString().includes("-")){
-        return it.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ;}
-    else return '' ;
-}
+  const convertDigitIn = (str) => {
+    return str.split('-').reverse().join('-');
+ }
   return (
     <>
     <Col lg="6">
@@ -71,10 +64,10 @@ const handleThanhtoan = (it) => {
                        <div className="item" >
                          {/* <div style={{ width: "50%"}}>{item.hkten}                    </div>
                          <div style={{ width: "auto", marginLeft:'60px'}}>{item.hkma}</div> */}
-                         <div style={{width: "550px", marginLeft:'50px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} 
-                         <div style={{width: "auto"}}> {item.ngayTao}</div>
+                         <div style={{width: "550px", marginLeft:'100px'}}>{item.soTien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} 
+                         <div style={{width: "auto"}}> {convertDigitIn(item.ngayTao.substring(0,10))}</div>
                          </div>
-                         <div style={{ height: "100%", marginLeft:'100px' }}>
+                         <div style={{ height: "100%", marginLeft:'-220px' }}>
                          <div
                              className="itemDetail"
                              style={{ margin: '10px 0 0 0', width: '150px'}}
