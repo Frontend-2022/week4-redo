@@ -6,7 +6,7 @@ const RegisterHeader = () => {
   
   return (
     <form className="register-header">
-      <Nav justified  >
+      <Nav justified style={{flexWrap:'nowrap'}}  >
          <NavItem style={{marginLeft:'27vw'}}  > {/* style={{marginLeft:'390px'}} */}
           <div className="choose-term" >
             <div>Chọn học kì</div>
