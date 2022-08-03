@@ -85,6 +85,33 @@ const RegisterContent = () => {
                   </div>
                 </div>
               </div>
+              <div className="contentsflow2">
+                <div className="Cart_Code">
+                  <div className="Cart">
+                    {" "}
+                    <i className="pe-7s-note2 icon-subject"></i>
+                  </div>
+                  <div className="Code">Nguyên lý lập trình</div>
+                </div>{" "}
+                {/* Cart_Code */}
+                <div className="Content">Mã môn học: </div>
+                <div className="address">Số Tín chỉ: </div>
+                <div className="Order_Info">
+                  <div className="Customer_Infor">
+                    <div className="Name">Giảng Viên: </div>
+                  </div>
+                  <div className="Datetime">Tình trạng:</div>
+
+                  <div className="price-toggle">
+                    <div className="toggle">
+                      <button className="btn-toggle">
+                        <i className="pe-7s-angle-up-circle icon-toggle"></i>
+                        <span>Đăng ký</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col l-3">

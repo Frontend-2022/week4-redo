@@ -48,8 +48,8 @@
   margin-top: 16px;
 }
 .container-flow2-2 {
-  /* max-height: 300px; */
-  height: 500px;
+  max-height: 500px;
+  /* height: 500px; */
   overflow-y: auto;
 }
 .container-flow2-2::-webkit-scrollbar {
@@ -86,7 +86,7 @@
   background: #e2dede 0% 0% no-repeat padding-box;
   opacity: 1;
   padding-top: 1px;
-  height: 500px;
+  height: 700px;
   border-radius: 0 0 12px 12px;
 }
 /* contentFlow2 */
@@ -296,4 +296,7 @@
   align-items: center;
   width: 100px;
   height: 30px;
+}
+.btn-toggle:hover {
+  background-color: #102e4c;
 }
