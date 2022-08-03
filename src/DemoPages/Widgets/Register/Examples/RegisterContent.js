@@ -2,6 +2,8 @@ import React from "react";
 import "./Register.css";
 import "./RegisterContent.css";
 import { CardTitle, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+import Result from "./Result";
 const RegisterContent = () => {
   return (
     <>
@@ -182,6 +184,7 @@ const RegisterContent = () => {
           </div>
         </div>
       </div>
+
       <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
