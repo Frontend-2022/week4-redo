@@ -2,6 +2,7 @@ import React from "react";
 import "./Register.css";
 import "./RegisterContent.css";
 import { CardTitle, Button } from "reactstrap";
+import AppFooter from "./Footer";
 
 const RegisterContent = ({ items }) => {
   // console.log(
@@ -61,14 +62,14 @@ const RegisterContent = ({ items }) => {
           </div>
         </div>
       </div>
-
-      <Button
+<AppFooter/>
+      {/* <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
         color="primary"
       >
         Xem kết quả
-      </Button>
+      </Button> */}
     </>
   );
 };
