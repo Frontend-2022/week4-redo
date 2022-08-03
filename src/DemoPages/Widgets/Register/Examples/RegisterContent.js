@@ -2,8 +2,7 @@ import React from "react";
 import "./Register.css";
 import "./RegisterContent.css";
 import { CardTitle, Button } from "reactstrap";
-import { Link } from "react-router-dom";
-import Result from "./Result";
+import AppFooter from './Footer';
 const RegisterContent = () => {
   return (
     <>
@@ -184,14 +183,14 @@ const RegisterContent = () => {
           </div>
         </div>
       </div>
-
-      <Button
+<AppFooter/>
+      {/* <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
         color="primary"
       >
         Xem kết quả
-      </Button>
+      </Button> */}
     </>
   );
 };
