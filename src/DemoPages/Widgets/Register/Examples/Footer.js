@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 
-class AppFooter extends React.Component {
-    render() {
+const AppFooter = ({ quantity }) => {
 
 
         return (
@@ -18,7 +17,7 @@ class AppFooter extends React.Component {
                                         Tổng số tín chỉ:
                                 </li>
                                 <li className="nav-item">
-                                        Tổng số môn học:
+                                        Tổng số môn học: {quantity}
                                 </li>
                                 </ul>
                         </div>
@@ -34,7 +33,7 @@ class AppFooter extends React.Component {
                     </div>
                 </div>
             </Fragment>
-        )}
+        )
 }
 
 export default AppFooter;

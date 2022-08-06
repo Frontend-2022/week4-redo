@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Register.css";
 import "./RegisterContent.css";
 import { CardTitle, Button } from "reactstrap";
@@ -9,6 +9,7 @@ const RegisterContent = ({ items }) => {
   //   "itemss >> ",
   //   items.map((item) => item.mhten)
   // );
+  const [quantity,Setquantity] = useState(0);
   return (
     <>
       <CardTitle>Môn học chờ đăng kí</CardTitle>
@@ -49,7 +50,7 @@ const RegisterContent = ({ items }) => {
 
                     <div className="price-toggle">
                       <div className="toggle">
-                        <button className="btn-toggle">
+                        <button className="btn-toggle" onClick={()=>Setquantity(quantity+1)}>
                           <i className="pe-7s-angle-up-circle icon-toggle"></i>
                           <span>Đăng ký</span>
                         </button>
@@ -62,7 +63,7 @@ const RegisterContent = ({ items }) => {
           </div>
         </div>
       </div>
-<AppFooter/>
+<AppFooter quantity={quantity}/>
       {/* <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
