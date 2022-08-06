@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import { Button } from 'reactstrap';
 
 const AppFooter = ({ quantity,tc}) => {
 
@@ -25,7 +26,7 @@ const AppFooter = ({ quantity,tc}) => {
                             <ul className="nav">
                                 <li className="nav-item">
                                         <div className="badge bg-success me-1 ms-0">
-                                            <small>Icon giỏ hàng / Xem chi tiết</small>
+                                            <Button>Icon giỏ hàng / Xem chi tiết</Button>
                                         </div>
                                 </li>
                             </ul>
