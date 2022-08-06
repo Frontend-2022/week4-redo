@@ -13,7 +13,9 @@ const RegisterContent = ({ items }) => {
   const [TC,Settc] = useState(0);
   const HandleNum = (item) =>{
     Setquantity(quantity+1)
-    Settc(TC+item.mhsotc)
+    if(TC < 15)
+      Settc(TC+item.mhsotc)
+    else return TC
   }
   return (
     <>
