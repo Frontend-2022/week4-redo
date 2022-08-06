@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-const AppFooter = ({ quantity }) => {
+const AppFooter = ({ quantity,tc}) => {
 
 
         return (
@@ -14,7 +14,7 @@ const AppFooter = ({ quantity }) => {
                                 </li>
                            
                                 <li className="nav-item" style={{marginRight:'30px'}}>
-                                        Tổng số tín chỉ:
+                                        Tổng số tín chỉ: {tc}
                                 </li>
                                 <li className="nav-item">
                                         Tổng số môn học: {quantity}

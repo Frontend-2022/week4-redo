@@ -10,6 +10,11 @@ const RegisterContent = ({ items }) => {
   //   items.map((item) => item.mhten)
   // );
   const [quantity,Setquantity] = useState(0);
+  const [TC,Settc] = useState(0);
+  const HandleNum = (item) =>{
+    Setquantity(quantity+1)
+    Settc(TC+item.mhsotc)
+  }
   return (
     <>
       <CardTitle>Môn học chờ đăng kí</CardTitle>
@@ -50,7 +55,7 @@ const RegisterContent = ({ items }) => {
 
                     <div className="price-toggle">
                       <div className="toggle">
-                        <button className="btn-toggle" onClick={()=>Setquantity(quantity+1)}>
+                        <button className="btn-toggle" onClick={()=>HandleNum(item)}>
                           <i className="pe-7s-angle-up-circle icon-toggle"></i>
                           <span>Đăng ký</span>
                         </button>
@@ -63,7 +68,7 @@ const RegisterContent = ({ items }) => {
           </div>
         </div>
       </div>
-<AppFooter quantity={quantity}/>
+<AppFooter quantity={quantity} tc={TC}/>
       {/* <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
