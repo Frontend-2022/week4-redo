@@ -313,3 +313,14 @@
 .btn-toggle:hover {
   background-color: #102e4c;
 }
+.btn-toggle1 {
+  border: none;
+  background-color: #d68c25;
+  border-radius: 12px;
+  color: #ffffff;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+}

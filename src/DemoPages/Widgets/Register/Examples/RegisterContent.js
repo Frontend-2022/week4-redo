@@ -12,10 +12,29 @@ const RegisterContent = ({ items }) => {
   const [quantity,Setquantity] = useState(0);
   const [TC,Settc] = useState(0);
   const HandleNum = (item) =>{
-    Setquantity(quantity+1)
-    if(TC < 15)
+    if(TC < 15){
+      Setquantity(quantity+1)
       Settc(TC+item.mhsotc)
-    else return TC
+    }
+    else return (TC,quantity)
+  }
+  // const HandleDisplay = () =>{
+  //   var l = document.getElementsByClassName('btn-toggle');
+  //   const toggle = function() 
+  //   {
+  //       var cb = this.parentNode.getElementsByClassName('btn-toggle1')[0];
+  //       var cb1 = this.parentNode.getElementsByClassName('btn-toggle')[0];
+  //       cb.style.display = "block";
+  //       cb1.style.display = "none";
+        
+  //   }
+  //     for (var j = l.length - 1; j >= 0; j--) {
+  //       l[j].addEventListener('click', toggle, false);
+  //     };
+  // }
+  const Handle = (item) =>{
+    HandleNum(item)
+    // HandleDisplay()
   }
   return (
     <>
@@ -57,10 +76,14 @@ const RegisterContent = ({ items }) => {
 
                     <div className="price-toggle">
                       <div className="toggle">
-                        <button className="btn-toggle" onClick={()=>HandleNum(item)}>
+                        <button className="btn-toggle" onClick={()=>Handle(item)}>
                           <i className="pe-7s-angle-up-circle icon-toggle"></i>
                           <span>Đăng ký</span>
-                        </button>
+                         </button>
+                        {/* <button className="btn-toggle1">
+                        <i className="pe-7s-angle-up-circle icon-toggle"></i>
+                          <span>Đ</span>
+                        </button> */}
                       </div>
                     </div>
                   </div>
