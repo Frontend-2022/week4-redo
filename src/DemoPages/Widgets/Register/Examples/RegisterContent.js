@@ -11,6 +11,7 @@ const RegisterContent = ({ items }) => {
   // );
   const [quantity,Setquantity] = useState(0);
   const [TC,Settc] = useState(0);
+  const [cart,Setcart] = useState([]);
   const HandleNum = (item) =>{
     
       Setquantity(quantity+1)
@@ -30,7 +31,9 @@ const RegisterContent = ({ items }) => {
   };
   const Handle = (item) =>{
     HandleNum(item)
+    Setcart(cart.concat(item))
   }
+  console.log(cart)
   return (
     <>
       <CardTitle>Môn học chờ đăng kí</CardTitle>
