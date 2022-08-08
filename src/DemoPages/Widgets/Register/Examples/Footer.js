@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { Button } from 'reactstrap';
-
-const AppFooter = ({ quantity,tc}) => {
+import RegisterModal from './RegisterModal';
+const AppFooter = ({ quantity,tc,cart}) => {
 
 
         return (
@@ -26,7 +26,7 @@ const AppFooter = ({ quantity,tc}) => {
                             <ul className="nav">
                                 <li className="nav-item">
                                         <div className="badge bg-success me-1 ms-0">
-                                            <Button>Icon giỏ hàng / Xem chi tiết</Button>
+                                            <RegisterModal cart ={cart} />
                                         </div>
                                 </li>
                             </ul>
