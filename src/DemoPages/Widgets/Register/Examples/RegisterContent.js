@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import "./RegisterContent.css";
 import { CardTitle, Button } from "reactstrap";
@@ -9,31 +9,33 @@ const RegisterContent = ({ items }) => {
   //   "itemss >> ",
   //   items.map((item) => item.mhten)
   // );
-  const [quantity,Setquantity] = useState(0);
-  const [TC,Settc] = useState(0);
-  const [cart,Setcart] = useState([]);
-  const HandleNum = (item) =>{
-    
-      Setquantity(quantity+1)
-      Settc(TC+item.mhsotc)
-  }
-  var l = document.getElementsByClassName('btn-toggle');
-  const toggle = function() 
-  {
-    var cb = this.parentNode.getElementsByClassName('btn-toggle1')[0];
-    var cb1 = this.parentNode.getElementsByClassName('btn-toggle')[0];
+  const [quantity, Setquantity] = useState(0);
+  const [TC, Settc] = useState(0);
+  const [cart, Setcart] = useState([]);
+  const HandleNum = (item) => {
+    Setquantity(quantity + 1);
+    Settc(TC + item.mhsotc);
+  };
+
+  var l = document.getElementsByClassName("btn-toggle");
+  const toggle = function () {
+    var cb = this.parentNode.getElementsByClassName("btn-toggle1")[0];
+    var cb1 = this.parentNode.getElementsByClassName("btn-toggle")[0];
     cb.style.display = "block";
     cb1.style.display = "none";
-        
-  }
+  };
   for (var j = l.length - 1; j >= 0; j--) {
     l[j].onclick = toggle;
-  };
-  const Handle = (item) =>{
-    HandleNum(item)
-    Setcart(cart.concat(item))
   }
-  console.log(cart)
+  const [state, setState] = useState(true);
+  const toggleStasus = () => {
+    setState(!state);
+  };
+  const Handle = (item) => {
+    HandleNum(item);
+    Setcart(cart.concat(item));
+  };
+  console.log(cart);
   return (
     <>
       <CardTitle>Môn học chờ đăng kí</CardTitle>
@@ -74,14 +76,21 @@ const RegisterContent = ({ items }) => {
 
                     <div className="price-toggle">
                       <div className="toggle">
-                        <button className="btn-toggle" onClick={()=>Handle(item)}>
+                        <button
+                          onClick={() => Handle(item)}
+                          onChange={toggleStasus}
+                          className={
+                            "btn-toggle" +
+                            (state ? "Chờ xác nhận" : " btn-toggle")
+                          }
+                        >
                           <i className="pe-7s-angle-up-circle icon-toggle"></i>
                           <span>Đăng ký</span>
-                         </button>
-                        <button className="btn-toggle1">
-                        <i className="pe-7s-angle-up-circle icon-toggle"></i>
-                          <span>Đ</span>
                         </button>
+                        {/* <button className="btn-toggle1">
+                          <i className="pe-7s-angle-up-circle icon-toggle"></i>
+                          <span>Chờ xác nhận</span>
+                        </button> */}
                       </div>
                     </div>
                   </div>
@@ -91,7 +100,7 @@ const RegisterContent = ({ items }) => {
           </div>
         </div>
       </div>
-<AppFooter quantity={quantity} tc={TC}/>
+      <AppFooter quantity={quantity} tc={TC} cart={cart} />
       {/* <Button
         className="btn-wide mb-2 me-2 check-result"
         size="lg"
