@@ -35,7 +35,11 @@ const Debt = ({ items }) => {
     Setcart(cart.concat(item));
     // setState(item);
   };
-  
+  const HandleNull = (i) => {
+    if (i === null)
+      return ''
+    return i
+  }
   return (
     <>
       <div className="container">
@@ -55,7 +59,7 @@ const Debt = ({ items }) => {
                   <div className="address">{`Số tín chỉ:  ${item.mhsotc}`}</div>
                   <div className="Order_Info">
                     <div className="Customer_Infor">
-                      <div className="Name">{`Giảng Viên: ${item.gvten}`} </div>
+                      <div className="Name">{`Giảng Viên: ${HandleNull(item.gvten)}`} </div>
                     </div>
                     <div className="Datetime">Tình trạng:</div>
 

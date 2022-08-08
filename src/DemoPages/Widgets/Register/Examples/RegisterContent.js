@@ -16,22 +16,40 @@ const RegisterContent = ({ items }) => {
     Setquantity(quantity + 1);
     Settc(TC + item.mhsotc);
   };
+//   const ChangOpacity=(theme,theme2)=>{
+//      let cb = this.parentNode.getElementsByClassName("btn-toggle1")[0];
+//      let cb1 = this.parentNode.getElementsByClassName("btn-toggle")[0];
+//      cb.style.opacity = theme;
+//      cb1.style.opacity = theme2;
+    
+//      sessionStorage.setItem('theme', cb.style.opacity);
+//      sessionStorage.setItem('theme2', cb.style.opacity);
+//    }
+//  const toggle = function () {
+//      let currentThemeColor = sessionStorage.getItem('theme')||0 ;
+//      let currentThemeColor2 = sessionStorage.getItem('theme2') || 1;
+//      ChangOpacity(currentThemeColor,currentThemeColor2)
+//    };
+    const toggle = function () {
+      let cb = this.parentNode.getElementsByClassName("btn-toggle1")[0];
+     let cb1 = this.parentNode.getElementsByClassName("btn-toggle")[0];
+     cb.style.opacity= 1;
+      cb1.style.opacity = 0;
+      sessionStorage.setItem('op',cb.style.opacity)
+     sessionStorage.setItem('op',cb1.style.opacity)
+   };
   let l = document.getElementsByClassName("btn-toggle");
-  const toggle = function () {
-    let cb = this.parentNode.getElementsByClassName("btn-toggle1")[0];
-    let cb1 = this.parentNode.getElementsByClassName("btn-toggle")[0];
-    cb.style.opacity = 1;
-    cb1.style.opacity = 0;
-  };
   for (let j = l.length - 1; j >= 0; j--) {
     l[j].onclick = toggle;
   }
+  window.onbeforeunload = (event) => {
+   localStorage.clear();
+};
   const Handle = (item) => {
     HandleNum(item);
     Setcart(cart.concat(item));
     // setState(item);
   };
-  console.log(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
   localStorage.setItem('TC', JSON.stringify(TC));
   localStorage.setItem('quantity', JSON.stringify(quantity));
