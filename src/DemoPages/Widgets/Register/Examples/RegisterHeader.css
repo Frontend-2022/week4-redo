@@ -1,7 +1,7 @@
 .register-header {
   margin: 30px auto;
   width: 100%;
-  height: 100px;
+  height: 70px;
   border-radius: 5px;
   align-items: center;
 }
@@ -23,6 +23,8 @@
   border-radius: 5px;
   margin-top: 7px;
   border: 1px solid;
+
+  font-family: "Roboto", sans-serif;
 }
 .typeOfRegister {
   margin-top: 10px;
