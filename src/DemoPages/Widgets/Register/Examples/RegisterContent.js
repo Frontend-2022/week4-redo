@@ -8,15 +8,14 @@ const RegisterContent = ({ items }) => {
   //   "itemss >> ",
   //   items.map((item) => item.mhten)
   // );
-  const [quantity, Setquantity] = useState(0);
-  const [TC, Settc] = useState(0);
-  const [cart, Setcart] = useState([]);
+  const [quantity, Setquantity] = useState(JSON.parse(localStorage.getItem('quantity'))? JSON.parse(localStorage.getItem('quantity')):0);
+  const [TC, Settc] = useState(JSON.parse(localStorage.getItem('TC'))? JSON.parse(localStorage.getItem('TC')):0);
+  const [cart, Setcart] = useState(JSON.parse(localStorage.getItem('cart'))?JSON.parse(localStorage.getItem('cart')):[]);
 
   const HandleNum = (item) => {
     Setquantity(quantity + 1);
     Settc(TC + item.mhsotc);
   };
-
   let l = document.getElementsByClassName("btn-toggle");
   const toggle = function () {
     let cb = this.parentNode.getElementsByClassName("btn-toggle1")[0];
@@ -27,13 +26,15 @@ const RegisterContent = ({ items }) => {
   for (let j = l.length - 1; j >= 0; j--) {
     l[j].onclick = toggle;
   }
-
   const Handle = (item) => {
     HandleNum(item);
     Setcart(cart.concat(item));
     // setState(item);
   };
   console.log(cart);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('TC', JSON.stringify(TC));
+  localStorage.setItem('quantity', JSON.stringify(quantity));
   return (
     <>
       <div className="container">

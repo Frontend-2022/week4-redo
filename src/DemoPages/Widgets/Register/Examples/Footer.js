@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import { Button } from 'reactstrap';
 import RegisterModal from './RegisterModal';
 const AppFooter = ({ quantity,tc,cart}) => {
 
