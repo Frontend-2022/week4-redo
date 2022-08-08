@@ -5,12 +5,10 @@ import { Nav, NavItem, Button, CardTitle } from "reactstrap";
 const RegisterHeader = () => {
   return (
     <form className="register-header">
-      <Nav justified style={{ flexWrap: "nowrap", marginLeft: "27vw" }}>
-        <NavItem style={{ flexGrow: "0" }}>
-          {" "}
-          {/* style={{marginLeft:'390px'}} */}
+      <div className="register-header-child">
+        <div>
           <div className="choose-term">
-            <div>Chọn học kì</div>
+            <div style={{ textAlign: "center" }}>Chọn học kì</div>
             <select className="slec">
               <option>Học kì mới</option>
               <option>Học kỳ 1</option>
@@ -19,12 +17,10 @@ const RegisterHeader = () => {
               <option>Học kỳ 1</option>
             </select>
           </div>
-        </NavItem>
-        <NavItem style={{ marginRight: "50vw ", flexGrow: "0" }}>
-          {" "}
-          {/* style={{marginLeft:'-470px'}}*/}
+        </div>
+        <div>
           <div className="choose-term">
-            <div>Chọn đợt đăng kí</div>
+            <div style={{ textAlign: "center" }}>Chọn đợt đăng kí</div>
             <select className="slec">
               <option>Tất cả</option>
               <option>Học kỳ 1</option>
@@ -33,10 +29,10 @@ const RegisterHeader = () => {
               <option>Học kỳ 1</option>
             </select>
           </div>
-        </NavItem>
-      </Nav>
+        </div>
+      </div>
       <div className="divider" />
-      <CardTitle>Môn học chờ đăng kí</CardTitle>
+      {/* <CardTitle>Môn học chờ đăng kí</CardTitle> */}
     </form>
   );
 };
