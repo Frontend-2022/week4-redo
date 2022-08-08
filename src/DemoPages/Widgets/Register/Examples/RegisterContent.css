@@ -280,10 +280,11 @@
 }
 .toggle {
   display: flex;
-  width: 150px;
-  justify-content: space-between;
+  width: 99%;
+  justify-content: space-around;
   margin-top: 10px;
-  margin-left: 105px;
+  margin-left: 10px;
+  position: relative;
 }
 .icon-toggle {
   font-size: 15px;
@@ -307,9 +308,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 100px;
   height: 30px;
+  opacity: 1;
 }
+
 .btn-toggle:hover {
   background-color: #102e4c;
 }
@@ -318,10 +321,10 @@
   background-color: #25d62b;
   border-radius: 12px;
   color: #ffffff;
-  opacity: 1;
+  opacity: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100px;
+  width: 110px;
   height: 30px;
 }

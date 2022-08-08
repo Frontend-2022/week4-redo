@@ -3,7 +3,7 @@ import "./Register.css";
 import "./RegisterContent.css";
 import AppFooter from "./Footer";
 
-const RegisterContent = ({ items }) => {
+const Debt = ({ items }) => {
   // console.log(
   //   "itemss >> ",
   //   items.map((item) => item.mhten)
@@ -89,4 +89,4 @@ const RegisterContent = ({ items }) => {
     </>
   );
 };
-export default RegisterContent;
+export default Debt;
