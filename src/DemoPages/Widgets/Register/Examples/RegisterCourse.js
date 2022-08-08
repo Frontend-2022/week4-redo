@@ -21,7 +21,7 @@ class RegisterCoures extends React.Component {
       }
     );
     var resDebt = await axios.get(
-      "http://ims-api.viendong.edu.vn/api/beta/hocvien/monhoclai?hockyid=63",
+      "http://ims-api.viendong.edu.vn/api/beta/hocvien/monhoclai?hockyid=60",
       {
         headers: {
           token:
