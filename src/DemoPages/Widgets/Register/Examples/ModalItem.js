@@ -7,7 +7,7 @@ const ModalItem = ({ cart }) => {
       <Table className="mb-0">
         <thead>
           <tr>
-            <th>Tên môn học</th>
+            <th style={{ width: "450px" }}>Tên môn học</th>
             <th>TC</th>
             <th>Giảng viên</th>
           </tr>
