@@ -7,7 +7,8 @@ const ModalItem = ({ cart }) => {
       <Table className="mb-0">
         <thead>
           <tr>
-            <th style={{ width: "430px" }}>Môn học</th>
+            <th style={{  }}>Mã MH</th>
+            <th style={{ width: "350px" }}>Tên môn học</th>
             <th style={{ width: "20px" }}>TC</th>
             <th style={{  }}>Giảng viên</th>
             <th style={{ width: "90px" }}>Tình trạng</th>
@@ -16,6 +17,7 @@ const ModalItem = ({ cart }) => {
         <tbody>
           {cart.map((item) => (
             <tr className='styleTr'>
+              <td>{item.mhma}</td>
               <td>{item.mhten}</td>
               <td>{item.mhsotc}</td>
               <td>{item.gvten}</td>
