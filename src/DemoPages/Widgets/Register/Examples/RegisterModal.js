@@ -23,7 +23,7 @@ const RegisterModal = ({ cart }) => {
         <ModalItem cart={cart} />
         <ModalFooter>
           <Button color="link" onClick={toggle}>
-            Hủy
+            Hủy đăng ký
           </Button>
           <Button color="primary" onClick={toggle}>
             Xác nhận
