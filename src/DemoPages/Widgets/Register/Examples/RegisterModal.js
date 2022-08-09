@@ -18,7 +18,7 @@ const RegisterModal = ({ cart }) => {
         <span style={{ fontSize: "15px" }}>Xem kết quả</span>
       </Button>
       <Modal isOpen={modal} toggle={toggle} className='modalContent'>
-        <ModalHeader toggle={toggle} charCode="Y" >
+        <ModalHeader toggle={toggle} charCode="Y" style={{ backgroundColor: "#fd898c" }}>
           <span className="resultModal">Kết quả đăng kí môn học</span>
         </ModalHeader>
         <ModalItem cart={cart} />
