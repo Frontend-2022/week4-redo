@@ -9,7 +9,7 @@ const ModalItem = ({ cart }) => {
           <tr>
             <th style={{  }}>Mã MH</th>
             <th style={{ width: "350px" }}>Tên môn học</th>
-            <th style={{ width: "20px" }}>TC</th>
+            <th style={{ width: "20px" }}>Số TC</th>
             <th style={{  }}>Giảng viên</th>
             <th style={{ width: "90px" }}>Tình trạng</th>
           </tr>
