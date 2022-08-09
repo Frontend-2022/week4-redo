@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
 import ModalItem from "./ModalItem";
+import "./RegisterModal.css";
 const RegisterModal = ({ cart }) => {
   const [modal, SetModal] = useState(false);
 
@@ -16,9 +17,9 @@ const RegisterModal = ({ cart }) => {
         ></i>{" "}
         <span style={{ fontSize: "15px" }}>Xem kết quả</span>
       </Button>
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle} charCode="Y">
-          Kết quả
+      <Modal isOpen={modal} toggle={toggle} className='modalContent'>
+        <ModalHeader toggle={toggle} charCode="Y" >
+          <span className="resultModal">Kết quả</span>
         </ModalHeader>
         <ModalItem cart={cart} />
         <ModalFooter>

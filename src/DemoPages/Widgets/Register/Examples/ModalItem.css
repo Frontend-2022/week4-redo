@@ -1,0 +1,9 @@
+.modalInfo {
+    max-height: 330px;
+    overflow-y: auto;
+    border-top: 1px solid #eddcdc;
+    border-bottom: 1px solid #eddcdc;
+}
+.styleTr:hover {
+    background-color: #ebebeb;
+}

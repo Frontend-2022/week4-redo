@@ -1,0 +1,9 @@
+.modalContent {
+    background-color: aqua !important;
+}
+
+.resultModal {
+    color: rgb(199, 35, 35);
+    font-size: 24px;
+    font-weight: bold;
+}
