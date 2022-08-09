@@ -7,9 +7,10 @@ const ModalItem = ({ cart }) => {
       <Table className="mb-0">
         <thead>
           <tr>
-            <th style={{ width: "450px" }}>Môn học</th>
-            <th>TC</th>
-            <th>Giảng viên</th>
+            <th style={{ textAlign: "center", width: "400px" }}>Môn học</th>
+            <th style={{ textAlign: "center", width: "20px" }}>TC</th>
+            <th style={{ textAlign: "center" }}>Giảng viên</th>
+            <th style={{ textAlign: "center", width: "90px" }}>Tình trạng</th>
           </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@ const ModalItem = ({ cart }) => {
               <td>{item.mhten}</td>
               <td>{item.mhsotc}</td>
               <td>{item.gvten}</td>
+              <td></td>
             </tr>
           ))}
         </tbody>
