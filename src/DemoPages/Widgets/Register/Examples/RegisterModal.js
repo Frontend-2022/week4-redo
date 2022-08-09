@@ -19,14 +19,14 @@ const RegisterModal = ({ cart }) => {
       </Button>
       <Modal isOpen={modal} toggle={toggle} className='modalContent'>
         <ModalHeader toggle={toggle} charCode="Y" >
-          <span className="resultModal">Kết quả</span>
+          <span className="resultModal">Kết quả đăng kí môn học</span>
         </ModalHeader>
         <ModalItem cart={cart} />
         <ModalFooter>
-          <Button color="link" onClick={toggle}>
+          <Button color="link" onClick={toggle} className='cancelRegister'>
             Hủy đăng ký
           </Button>
-          <Button color="primary" onClick={toggle}>
+          <Button onClick={toggle} className='acceptRegister'>
             Xác nhận
           </Button>{" "}
         </ModalFooter>

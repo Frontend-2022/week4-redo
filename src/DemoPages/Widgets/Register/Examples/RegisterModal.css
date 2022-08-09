@@ -1,9 +1,32 @@
 .modalContent {
-    background-color: aqua !important;
+    
 }
 
 .resultModal {
     color: rgb(199, 35, 35);
     font-size: 24px;
     font-weight: bold;
+}
+
+.cancelRegister {
+    color: #495057;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cancelRegister:hover {
+    color: #f20000;
+}
+
+.acceptRegister {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #d68c25;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+}
+
+.acceptRegister:hover {
+    background-color: #25d62b;
 }
