@@ -1,12 +1,12 @@
 import React from "react";
 import "./Register.css";
-import { CardTitle } from "reactstrap";
 import RegisterHeader from "./RegisterHeader";
 import RegisterContent from "./RegisterContent";
 import axios from "axios";
 import ChooseTabs from "./ChooseTabs";
 import Debt from "./Debt";
 import MoreSubject from "./MoreSubjects";
+
 class RegisterCoures extends React.Component {
   state = {
     Register: [],
@@ -14,6 +14,7 @@ class RegisterCoures extends React.Component {
     MoreSubject: [],
     Kq: [],
   };
+
   async componentDidMount() {
     var response = await axios.get(
       "http://ims-api.viendong.edu.vn/api/beta/hocvien/monhocdukien?hockyid=63",
@@ -42,7 +43,7 @@ class RegisterCoures extends React.Component {
         },
       }
     );
-    var Kq = await axios.get(
+    let Kq = await axios.get(
       "http://ims-api.viendong.edu.vn/api/beta/hocvien/ketquadk?hockyid=63",
       {
         headers: {
@@ -51,10 +52,11 @@ class RegisterCoures extends React.Component {
         },
       }
     );
+
     const data = response?.data?.data ?? [];
     const data2 = resDebt?.data?.data ?? [];
     const data3 = MoreSubject?.data?.data ?? [];
-    const data4 = Kq?.data?.data ?? [];
+    const data4 = Kq?.data ?? [];
 
     this.setState({
       Register: data,
@@ -62,9 +64,9 @@ class RegisterCoures extends React.Component {
       MoreSubject: data3,
       Kq: data4,
     });
-
-    console.log(this.state.Kq);
+    // console.log(this.state.Kq);
   }
+
   render() {
     return (
       <>

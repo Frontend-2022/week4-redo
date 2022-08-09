@@ -1,9 +1,10 @@
 import React from "react";
 import "./RegisterHeader.css";
 import { Nav, NavItem, Button, CardTitle } from "reactstrap";
+import { get } from "react-scroll/modules/mixins/scroller";
 
 const RegisterHeader = ({ items }) => {
-  // console.log(items);
+  let gethkid = items.map((a) => a.hockyid);
   return (
     <>
       <form className="register-header">
@@ -12,7 +13,7 @@ const RegisterHeader = ({ items }) => {
             <div className="choose-term">
               <div style={{ textAlign: "center" }}>Chọn học kì</div>
               <select className="slec">
-                <option>Học kỳ 63</option>
+                <option>{`Học kỳ ${gethkid[0]}`}</option>
               </select>
             </div>
           </div>
