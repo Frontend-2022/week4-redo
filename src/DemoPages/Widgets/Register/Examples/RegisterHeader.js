@@ -1,19 +1,16 @@
 import React, {useEffect,useState} from "react";
 import "./RegisterHeader.css";
 import { CardTitle } from "reactstrap";
-import RegisterContent from "./RegisterContent";
-import ChooseTabs from "./ChooseTabs";
-import Debt from "./Debt";
-import MoreSubject from "./MoreSubjects";
-const RegisterHeader = ({ items,reg,debt,sub }) => {
+
+const RegisterHeader = ({ items }) => {
   useEffect(() => setTerms(items), [items]);
 const [terms, setTerms] = useState([]);
 const changeSelect = (e) => {
     if (!+e.target.value) {
-    setTerms(reg);
+    setTerms(items);
     return;
     }
-    setTerms(reg.filter((item) => +item.id === +e.target.value));
+    setTerms(items.filter((item) => +item.id === +e.target.value));
 };
 console.log(items)
   return (
@@ -44,18 +41,8 @@ console.log(items)
         <div className="divider" />
       </form>
       <CardTitle>Môn học chờ đăng kí</CardTitle>
-    <ChooseTabs>
-    <div label="Trong kế hoạch">
-      <RegisterContent items={reg} />
-    </div>
-    <div label="Học lại">
-      <Debt items={debt} />
-    </div>
-    <div label="Học vượt">
-      <MoreSubject items={sub} />
-    </div>
-  </ChooseTabs>
-  </>
+    </>
+    
   );
 };
 export default RegisterHeader;

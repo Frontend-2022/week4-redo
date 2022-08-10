@@ -1,9 +1,11 @@
 import React from "react";
 import "./Register.css";
 import RegisterHeader from "./RegisterHeader";
-
+import RegisterContent from "./RegisterContent";
 import axios from "axios";
-
+import ChooseTabs from "./ChooseTabs";
+import Debt from "./Debt";
+import MoreSubject from "./MoreSubjects";
 
 class RegisterCoures extends React.Component {
   state = {
@@ -12,6 +14,7 @@ class RegisterCoures extends React.Component {
     MoreSubject: [],
     Kq: [],
   };
+
   async componentDidMount() {
     var response = await axios.get(
       "http://ims-api.viendong.edu.vn/api/beta/hocvien/monhocdukien?hockyid=63",
@@ -56,14 +59,25 @@ class RegisterCoures extends React.Component {
       MoreSubject: data3,
       Kq: data4,
     });
+    
   }
 
   render() {
     return (
       <>
-        <RegisterHeader items={this.state.Kq} reg={this.state.Register} debt={this.state.Debt} sub={this.state.MoreSubject}/>
+        <RegisterHeader items={this.state.Kq} />
 
-        
+        <ChooseTabs>
+          <div label="Trong kế hoạch">
+            <RegisterContent items={this.state.Register} />
+          </div>
+          <div label="Học lại">
+            <Debt items={this.state.Debt} />
+          </div>
+          <div label="Học vượt">
+            <MoreSubject items={this.state.MoreSubject} />
+          </div>
+        </ChooseTabs>
       </>
     );
   }

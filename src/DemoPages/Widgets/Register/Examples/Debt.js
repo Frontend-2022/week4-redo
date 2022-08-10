@@ -8,7 +8,6 @@ const Debt = ({ items }) => {
   //   "itemss >> ",
   //   items.map((item) => item.mhten)
   // );
-  console.log(localStorage)
   const [quantity, Setquantity] = useState(JSON.parse(localStorage.getItem('quantity'))? JSON.parse(localStorage.getItem('quantity')):0);
   const [TC, Settc] = useState(JSON.parse(localStorage.getItem('TC'))? JSON.parse(localStorage.getItem('TC')):0);
   const [cart, Setcart] = useState(JSON.parse(localStorage.getItem('cart'))?JSON.parse(localStorage.getItem('cart')):[]);
@@ -29,7 +28,9 @@ const Debt = ({ items }) => {
   for (let j = l.length - 1; j >= 0; j--) {
     l[j].onclick = toggle;
   }
-
+  window.onbeforeunload = (event) => {
+    localStorage.clear();
+ };
   const Handle = (item) => {
     HandleNum(item);
     Setcart(cart.concat(item));
@@ -40,6 +41,9 @@ const Debt = ({ items }) => {
       return ''
     return i
   }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('TC', JSON.stringify(TC));
+  localStorage.setItem('quantity', JSON.stringify(quantity));
   return (
     <>
       <div className="container">
