@@ -17,25 +17,11 @@ import 'bootstrap-daterangepicker/daterangepicker.css';
 import axios from 'axios';
 
 function Schedule() {
-
-    // state = {
-    //     schedule: []
-    // }
-    // async componentDidMount() {
-    //     // Get items from database
-    //     let res = await axios.get('http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay', {
-    //         headers: {
-    //             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1NzY4Nzc3MH0.w9lduwIS3ULlyKaPvaQisrI9_TMF2xj918JpGp_Wauo"
-    //         }
-    //     })
-
-    //     this.setState({ schedule: res && res.data && res.data.data ? res.data.data : [] })
-    // };
     
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
     useEffect(()=>{
-        axios.get(
-            "http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay?ngay=2021-11-20",
+
+        fetch(`http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay?ngay=2021-11-20`,
             {
                 headers: {
                 token:
@@ -43,24 +29,28 @@ function Schedule() {
                 },
             }
         )
-            .then(res => {
-                console.log(res.data)
-                setPosts(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        .then(resp => resp.json())
+        .then(data => {
+            setPosts(data)
+        })
+
+        // axios.get(
+        //     "http://ims-api.viendong.edu.vn/api/beta/hocvien/tkbtheongay?ngay=2021-11-20",
+        //     {
+        //         headers: {
+        //         token:
+        //             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTU2NjQsImhvY3ZpZW5pZCI6MTc4ODMsImdpYW5ndmllbmlkIjpudWxsLCJ1c2VyaWQiOiIyMDA1MDIwMDI5IiwicGFzcyI6IjEyMzQ1NiIsImhvY1ZpZW5JZCI6MTc4ODMsImhvY1ZpZW4iOnsiaWQiOjE3ODgzLCJtc2h2IjoiMjAwNTAyMDAyOSIsImhvIjoiVGjDoWkgVGjhu4sgS2ltIiwidGVuIjoiTmfDom4iLCJoaW5oYW5oIjpudWxsLCJtYWxvcCI6IjE0S1RDIiwibmFtbmhhcGhvYyI6MjAyMCwia2hvYWhvYyI6MTQsImdoaWNodSI6Ik5oYXAgdHUgZmlsZSBleGNlbCBEU1NWX0sxNC54bHMiLCJuZ2F5bGFwIjoiMjAyMS0wMS0yOVQxNjoyMjowMC4wMDBaIiwibWF0cmFuZ3RoYWkiOm51bGwsIm5nYXlzaW5oIjoiMjAwMi0wMi0xM1QwMDowMDowMC4wMDBaIiwiZW1haWwiOm51bGwsInNkdCI6IjA4OTgyODAzNzQiLCJjbW5kIjoiMzAxNzk2Mjc3IiwiZ2lvaXRpbmgiOm51bGwsIm5vaXNpbmgiOm51bGwsImtob2luZ2FuaGlkIjo1Njh9LCJnaWFuZ1ZpZW4iOm51bGwsImlhdCI6MTY1Nzk1MTYyOX0.MC_ezgd5xPIax_h6c0xEhjrqppvQ88ZlxnNz4Z6MMsk",
+        //         },
+        //     }
+        // )
+        //     .then(res => {
+        //         // console.log(res.data)
+        //         setPosts(res.data)
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
     },[])
-
-    // let arrPost = posts.map((post)=> post.data);
-
-    const InforPosts = (temp) => {
-        var namePost = [];
-        for(var i = 0, l = temp.length; i < l; i++) {
-            namePost.push(temp[i]);
-        }
-        return namePost;
-    }
     
     const handleApply = (event, picker) => {
         picker.element.val(
@@ -76,8 +66,10 @@ function Schedule() {
         const [state1, setState1] = useState();
         const handleCallback = (start, end) => {
             setState1({ start, end });
-        };    
+        };   
         
+        // let arr = [];
+
     return (
         
         <div className="scheduleCSS">
@@ -85,12 +77,8 @@ function Schedule() {
 
             <div className="schedule__student">
                 <span>Nguyễn Đức Tiến - MSSV: 1812020001 - Lớp : 12ĐHC - Ngành : THIẾT KẾ ĐỒ HỌA</span>
-                <br/> 
-                <>
-                    {InforPosts(posts).map((post)=>(
-                        <div>{post.data}</div>
-                    ))}
-                </>
+                <br/>
+                
             </div>
 
             <div className="schedule__contents">
@@ -233,9 +221,7 @@ function Schedule() {
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
                                         <td className='td-style'></td>
-                                        <td className='td-style'>
-
-                                        </td>
+                                        <td className='td-style'></td>
                                     </tr>
                                     <tr>
                                         <th style={{ backgroundColor: '#699066' }} className='th-style' scope="row">Tiết 8 <br /> 13:50 - 14:40</th>
